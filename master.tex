@@ -23,16 +23,16 @@ curves and Weil divisors.
 
 \begin{mydef}
 \emph{Projective n-space} over a field $k$ denoted $\mathbb{P}^n$ is the set 
-of all $(n+1)$-tuples $$(x_0,...,x_n)\in\mathbb{A}^{n+1}$$
-modulo the equivalence relation given by $(x_0,...,x_n)\sim(y_0,...,y_n)$ 
+of all $(n+1)$-tuples $$(x_0,\ldots,x_n)\in\mathbb{A}^{n+1}$$
+modulo the equivalence relation given by $(x_0,\ldots,x_n)\sim(y_0,\ldots,y_n)$ 
 if there exists $\lambda\in k$ such that $x_i=\lambda y_i$.
-The equivalence class $\{(x_0,...,x_n)\}$ is denoted $[x_0,...,x_n]$.
-Here $\mathbb{A}^n = \{ (x_1,..,x_n) : x_i \in \bar{k} \} $ is the affine $n$-space.
+The equivalence class $\{(x_0,\ldots,x_n)\}$ is denoted $[x_0,\ldots,x_n]$.
+Here $\mathbb{A}^n = \{ (x_1,\ldots,x_n) : x_i \in \bar{k} \} $ is the affine $n$-space.
 \end{mydef}
 
 Let $Gal(\bar{k}/k)$ be the galois group of $\bar{k}/k$. This group acts on
 $\mathbb{A}^n$, such that when $\sigma \in Gal(\bar{k}/k)$ and $P\in \mathbb{A}^n$
-we define $\sigma(P) = (\sigma(x_1),...,\sigma(x_n))$. Now we define
+we define $\sigma(P) = (\sigma(x_1),\ldots,\sigma(x_n))$. Now we define
 the set of $k$-rational points in $\mathbb{A}^n$ to be those fixed under action by
 the galois group
 $$ \mathbb{A}^n(k) = \{ P \in \mathbb{A}^n : \sigma(P) = P\, \forall\, \sigma \in
@@ -45,7 +45,7 @@ Gal(\bar{k}/k) \} $$
 \begin{mydef}
  A polynomial $f\in\bar{k}[X]$ is said to be \emph{homogeneous of degree $d$} if for all
 $\lambda\in\bar{k}$ we have.
-$$f(\lambda x_0,...,\lambda x_n) = \lambda^d f(x_0,...,x_n)$$
+$$f(\lambda x_0,\ldots,\lambda x_n) = \lambda^d f(x_0,\ldots,x_n)$$
 Furthermore an ideal $I\subseteq\bar{k}[X]$ is said to be homogeneous if it is generated
 by homogeneous polynomials.
 \end{mydef}
@@ -85,7 +85,7 @@ The functions in $\bar{k}[V]_P$ are all defined at $P$.
 
 \begin{ex}
  If $V$ is a variety given by a single non-constant polynomial equation
-$$f(x_1,...,x_n) = 0$$ 
+$$f(x_1,\ldots,x_n) = 0$$ 
 then the dimension of the variety $dim(V)$ is $n-1$. The (projective) varieties
 we will study are called \emph{elliptic curvevs} and are
 given by polynomial equations
@@ -100,9 +100,9 @@ very interesting unless we define maps between them.
 
 \begin{mydef}
  Let $V_1$ and $V_2$ be projective varieties, a \emph{rational map} $\phi: V_1 \rightarrow V_2$
-is a set of maps $\{\phi_0,...,\phi_n\}$ with $\phi_i \in \bar{k}(V_1)$ such that for every
+is a set of maps $\{\phi_0,\ldots,\phi_n\}$ with $\phi_i \in \bar{k}(V_1)$ such that for every
 $P\in V_1$ we define
-$$\phi(P) = [\phi_0(P),...,\phi_n(P)] \in V_2$$
+$$\phi(P) = [\phi_0(P),\ldots,\phi_n(P)] \in V_2$$
 Such a rational map is called a \emph{morphism} if it is defined at every point $P$.
 \end{mydef}
 
@@ -125,7 +125,7 @@ be introduced later on. These are in practise the only curves we will be working
 \begin{mydef}
  Let $C$ be a curve and $P\in C$ a non-singular point on the curve. A valuation on
 $\bar{k}[C]_P$ is given by
-$$ ord_P : \bar{k}[C]_P \rightarrow \{ 0, 1, 2, ... \} \cup \{ \infty \} $$
+$$ ord_P : \bar{k}[C]_P \rightarrow \{ 0, 1, 2, \ldots \} \cup \{ \infty \} $$
 $$ ord_P(f) = max \{ d\in \mathbb{Z} : f\in M_P^d \} $$
 This is called \emph{the order of $f$ at $P$}.
 Letting $ord_P(f/g) = ord_P(f) - ord_P(g)$ we can extend the definition to the entire
