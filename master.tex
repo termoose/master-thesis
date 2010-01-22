@@ -2,7 +2,7 @@
 \usepackage{amsthm}
 
 %opening
-\title{Test}
+\title{Counting points on elliptic curves}
 \author{Ole Andre Birkedal}
 
 \begin{document}
@@ -98,7 +98,6 @@ They correspond to polynomials of the form $f(x,y) = x^3+ax+b-y^2$ so $dim(E)=1$
 We say curves are projective varieties of dimension $1$.
 \end{ex}
 
-
 The objects we will be working on are projective varieties, but they are not
 very interesting unless we define maps between them.
 
@@ -122,6 +121,7 @@ are isomorphic over $k$. If not, they are isomorphic over some field extension o
 (i.e. $\bar{k}$).
 \end{mydef}
 
+\subsection{Curves and divisors}
 Recall that curves are projective varieties of dimension one. Even more special
 are elliptic curves, which are curves with \emph{genus} equal to 1. This will
 be introduced later on. These are in practise the only curves we will be working with.
@@ -192,6 +192,83 @@ we write $D_1 \geq D_2$ to indicate that $D_1 - D_2$ is positive.
 is a group isomorphism
 \end{thm}
 
+\section{Weil pairing and Tate module}
+
+\begin{prop}
+ The \emph{multiplication by $n$} map
+$$ [n] : E \rightarrow E $$
+$$ P \mapsto nP $$
+has order $n^2$.
+\end{prop}
+\begin{proof}
+ Dual isogeny.
+\end{proof}
+
+A subgroup of $E(k)$ that will be of special interest to us is the group of points $P$
+with finite order $n$, this is by definition the kernel of the multiplication by $n$ map.
+\begin{mydef}
+ The $n$-torsion subgroup denoted $E[n]$ is the group of points of order $n$ in $E$.
+$$ E[n] = \{ P\in E : nP = O \} $$
+\end{mydef}
+
+We are now ready to construct a bilinear pairing between the $n$-torsion subgroups of
+an elliptic curve and the roots of unity $\mu_n$. This will prove useful to us in coming
+proofs. In addition it has well established applications within number theory, cryptography
+and indentity based encryption.
+
+The pairing we want to construct is of the form
+$$ e_n : E[n] \times E[n] \rightarrow \mu_n $$
+Let $T\in E[n]$ be an $n$-torsion point. From [et teorem] we know that there exists
+$f \in \bar{k}(E)$ such that $div(f) = n(T) - n(O)$. Now letting $T' \in E[n^2]$ be such
+that $nT' = T$, we have a function $g \in \bar{k}(E)$ such that
+$$ div(g) = \sum_{R\in E[n]} (T'+R)-(R) $$
+This follows from the fact that there are $n^2$ points in $E[n]$, the points $(R)$ in the
+sum cancel, so we are left with $n^2 T' = nT = O$. Clearly $deg(div(g)) = 0$.
+
+If we now form the composition $f \circ [n]$, we notice that the points $P = T' + R$ with
+$R\in E[n]$ are those with the property $nP = T$. Now since $f$ has a root at $T$ from
+construction, we see that $f \circ [n]$ has a root at $P$. Using the fact that $ord_P$ is a valuation
+so that $div(g^n) = n\;div(g)$, and writing out the divisors of our functions we see that
+$$ div(f \circ [n]) = n\sum_{R\in E[n]} (T'+R) - n\sum_{R\in E[n]} (R) = div(g^n) $$
+
+Since our two rational functions $f \circ [n]$ and $g^n$ have the same divisors, they have the
+same poles and zeros. Therefor they differ by multiplication of a constant, so
+$f \circ [n] = \lambda g^n$ with $\lambda \in \bar{k}$. With a suitable choice of $\lambda$
+we can assume that 
+$$f \circ [n] = g^n$$
+Letting $S \in E[n]$ be another $n$-torsion point and $X \in E(\bar{k})$ a point on the curve we calculate that
+$$ g(X + S)^n = (f \circ [n])(X + S) = f([n]X + [n]S) = f([n]X) = g(X)^n $$
+\begin{mydef}
+ Given the above calculation the \emph{Weil pairing} is defined as
+$$ e_n : E[n] \times E[n] \rightarrow \mu_n$$
+$$ (S,T) \mapsto \frac{g(X + S)}{g(X)} $$
+\end{mydef}
+
+\begin{prop}
+We have the following isomorphism of abelian groups
+ $$ E[n] \simeq \mathbb{Z}/m\mathbb{Z} \times \mathbb{Z}/m\mathbb{Z} $$
+\end{prop}
+\begin{proof}
+ fund. teorem. osv.
+\end{proof}
+
+The last proposition enables us to view automorphism of $E[n]$ as $2\times 2$ invertible matrices,
+so we obtain a  mod $\ell$ galois representation
+$$ Gal(\bar{k}/k) \overset{\rho}{\rightarrow} Aut(E[n]) \simeq GL_2(\mathbb{Z}/m\mathbb{Z}) $$
+To avoid working with congruences and instead work with equalities, we can construct
+and work with a field of characteristic 0. This is done by taking the inverse limit of the sequence
+$$ \dots \overset{[l]}{\rightarrow} E[\ell^{n+1}] \overset{[l]}{\rightarrow} E[\ell^{n}] \overset{[l]}{\rightarrow} E[\ell^{n-1}] \rightarrow \ldots $$
+$$ T_\ell(E) = \varprojlim E[\ell^n] $$
+This is called the \emph{$\ell$-adic Tate module} of E. Notice that since each the groups $E[\ell^n]$ has a
+$\mathbb{Z}/\ell^n\mathbb{Z}$-module structure, $T_\ell(E)$ will have natrual structure as a module
+over the ring og $\ell$-adic integers $\mathbb{Z}_\ell$.
+
+Similarly we can in a sense ``glue'' together the Weil pairings
+$$ e_{\ell^n} : E[\ell^n] \times E[\ell^n] \rightarrow \mu_{\ell^n} $$
+by constructing the $\ell$-adic roots of unity, and we obtain what is called the
+\emph{$\ell$-adic Weil pairing}.
+$$ e: T_\ell(E) \times T_\ell(E) \rightarrow T_\ell(\mu) $$
+
 \section{Frobnius and finite fields}
 Throughout this section our fields $k$ will be finite, so let $char(k) = p$ for
 a prime $p$. This means that $k = \mathbb{F}_{q}$ for some $q = p^r$.
@@ -253,6 +330,8 @@ $$ |d(\psi-\phi)-d(\phi)-d(\psi)| \leq 2 \sqrt{d(\phi)d(\psi)} $$
 \end{proof}
 
 
+
+\section{Schoof's algorithm}
 
 
 \end{document}
