@@ -1,0 +1,59 @@
+\section{Frobnius and finite fields}
+Throughout this section our fields $k$ will be finite, so let $char(k) = p$ for
+a prime $p$. This means that $k = \mathbb{F}_{q}$ for some $q = p^r$.
+
+\begin{mydef}
+ The \emph{frobenius} endomorphism is the $q^{th}$-power map
+$$ \phi: k \rightarrow k $$
+$$ x \mapsto x^q $$
+which induces a map on curves as follows
+$$ \phi: E(k) \rightarrow E(k) $$
+$$ (x_0,\ldots , x_n) \mapsto (x_0^q, \ldots , x_n^q) $$
+\end{mydef}
+
+\begin{prop}
+ The degree map
+$$ deg: Hom(E_1, E_2) \rightarrow \mathbb{Z} $$
+is a positive quadratic form.
+\end{prop}
+\begin{proof}
+ Clearly $deg(f) = deg(-f)$. The only thing that takes a proof is the
+bilinearity of the pairing
+$$ End(E_1, E_2) \times End(E_1, E_2) \rightarrow \mathbb{Z}$$
+$$ (\phi, \psi) \mapsto deg(\phi + \psi) - deg(\phi) - deg(\psi) $$
+For this proof we will make extentive use of the dual isogeny, but first
+notice that we have an injection of multiplication by $n$ maps:
+$$ [\quad]: \mathbb{Z} \rightarrow End(E_1) $$
+A calculation then yields 
+\begin{eqnarray*} 
+ [<\phi,\psi>] &=& [deg(\phi+\psi)]-[deg(\phi)]-[deg(\psi)] \nonumber \\
+               &=& (\hat{\phi+\psi})(\phi+\psi) - \hat{\phi}\phi - \hat{\psi}\psi \nonumber \\
+	       &=& \hat{\phi}\psi + \hat{\psi}\phi
+\end{eqnarray*}
+The pairing is then shown to be linear in the first varible, the second variable is
+similar.
+\begin{eqnarray*}
+ [<\phi_1+\phi_2, \psi>] &=& \hat{\psi}(\phi_1+\phi_2) + (\hat{\phi_1+\phi_2})\psi \nonumber \\
+			 &=& (\hat{\psi}\phi_1+\hat{\phi_1}\psi) + (\hat{\psi}\phi_2 + \hat{\phi_2}\psi) \nonumber \\
+			 &=& [<\phi_1,\psi>] + [<\phi_2,\psi>] 
+\end{eqnarray*}
+\end{proof}
+
+\begin{thm}
+ Let $\phi$ be the $q^{th}$ frobenius map. Then the map $1-\phi$ is seperable, and
+$\#ker(1-\phi) = deg(1-\phi)$.
+\end{thm}
+\begin{proof}
+ Proofs by the means of galois theory are given in [silverman-referanse], more
+elementary proofs are available in [lawrence-ref].
+\end{proof}
+
+\begin{lemma}
+ \textbf{(Cauchy-Schwartz inequality)}. Let $A$ be an abelian group and
+$$ d: A \rightarrow \mathbb{Z} $$
+a positive definite quadratic form. Then for all $\psi, \phi \in A$ the following holds
+$$ |d(\psi-\phi)-d(\phi)-d(\psi)| \leq 2 \sqrt{d(\phi)d(\psi)} $$
+\end{lemma}
+\begin{proof}
+ fixme
+\end{proof}
