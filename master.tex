@@ -130,9 +130,18 @@ Substituting the last equality into $\phi^2(P) = q_\ell P$ we obtain
 $$ \frac{4 q_\ell^2}{\tau^2} = q_\ell P \Leftrightarrow 4 q_\ell P = \tau^2 P $$
 We thus obtain the congruence $\tau^2 \equiv 4q_\ell \, (mod \ell)$
 
-\textbf{Case 2:} $gcd = 1$ so $\phi^2(P) \neq \pm q_\ell P$ meaning they are not equal or on the same
-vertical line for any $\ell$-torsion point $P$. This enables us to do the addition
-$\phi^2(P) + q_\ell P$ using the appropriate addition formulas.
+\textbf{Case 2:} $gcd = 1$ so $\phi^2(P) \neq \pm q_\ell P$ meaning the two points are 
+not equal nor are they on the same vertical line for any $\ell$-torsion point $P$. 
+This enables us to do the addition $\phi^2(P) + q_\ell P$ using the appropriate addition formulas.
+Recall that if $P = (x_1, y_1)$ and $Q = (x_2, y_2)$ are two points on $E$ with
+$P \neq Q$ we have that their sum is given by $P+Q = (x_3, y_3)$ where
+$$ \lambda = \frac{y_2 - y_1}{x_2 - x_1} $$
+$$ x_3 = -x_1 - x_2 + \lambda^2 $$
+$$ y_3 = -y_1 -\lambda(x_3 - x_1) $$
+We can now write out the addition explicitly in terms of polynomials as follows
+$$ \lambda = \frac{\Psi_{q_\ell+2} \Psi_{q_\ell-1}^2 - \Psi_{q_\ell-2}\Psi_{q_\ell+1}^2 - 4y^{q^2+1}\Psi_{q_\ell}^3}
+		  {4\Psi_{q_\ell} y ((x-x^{q^2})\Psi_{q_\ell}^2 - \Psi_{q_\ell-1}\Psi_{q_\ell+1}} $$
+
 
 \subsection{Modular polynomials}
 fixme
