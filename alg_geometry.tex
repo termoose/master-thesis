@@ -226,6 +226,27 @@ where $g \geq 0$ is called the \emph{genus} of the curve $C$.
  A proof would be outside the scope of this paper + referanser.
 \end{proof}
 
+Given a non-constant map of curves $\phi: C_1 \rightarrow C_2$, we have an induced map
+on function fields $\phi^*: K(C_2) \rightarrow K(C_1)$. From this again we get an induced
+map on differential forms
+$$ \phi^*: \Omega_{C_2} \rightarrow \Omega_{C_1} $$
+$$ \phi^*\left(\sum f_i dx_i\right) = \sum (\phi^* f_i) d(\phi^* x_i) $$
+
+\begin{mydef}
+ Let $\phi: C_1 \rightarrow C_2$ be a map of curves and $\phi^*$ its induced map on
+function fields. We then say that $\phi$ is a \emph{seperable map} if
+$K(C_1)/\phi^* K(C_2)$ is a seperable extension.
+\end{mydef}
+
+Recall that a field extension is separable if and only if the derivative of the minimal
+polynomial for each element is non-zero. This fact is the motivation for our next result,
+which gives a very nice criterion for determining when a map is separable.
+
+\begin{prop}
+ Let $\phi: C_1 \rightarrow C_2$ be a map of curves, then $\phi$ is separable if and only if
+the induced map $\phi^*: \Omega_{C_2} \rightarrow \Omega_{C_1} $ is non-zero.
+\end{prop}
+
 
 \begin{thm}
  $$ sum: Pic^0(C) \rightarrow E(\bar{k}) $$
