@@ -20,11 +20,10 @@ hei hei
 \maketitle
 \tableofcontents
 
-\include{alg_geometry}
-\include{weil_tate}
-\include{frobenius}
-\include{schoof}
-
+%\include{alg_geometry}
+%\include{weil_tate}
+%\include{frobenius}
+%\include{schoof}
 
 \section{Satoh's algorithm}
 Forklaring og overblikk over de forskjellige subsection-ene.
@@ -47,6 +46,8 @@ $$ \Phi_p(x, \sigma(x)) = 0 \quad x \equiv j(E) \, (mod\, p)$$
 where $\Phi_p$ is the $p$-th modular polynomial has a unique solution $J \in \mathbb{Z}_q$ 
 which is the $j$-invariant of the canonical lift $\mathscr{E}$ of $E$.
 \end{thm}
+The latter theorem gives an efficient way of calculating the $j$-invariants, in addition it has
+been shown [deuring-ref] that the canonical lift always exists and is unique (up to isomorphism).
 
 Knowing $j(\mathscr{E})$ we can explicitly write out the Weierstrass equation for $\mathscr{E}$, but
 instead of lifting $E$ to $\mathscr{E}$ directly we can consider all its conjugates
@@ -84,19 +85,52 @@ recover the $j$-invariants to desired precision. Setting up the Jacobian matrix 
 of $\Theta$, the iteration is given by
 $$ \bar{x}_{n+1} = \bar{x}_n - J_\Theta^{-1} \Theta(\bar{x}_n) $$
 
-
 $$
 J_\Theta(x_0, x_1, \ldots, x_{n-1}) = 
 \begin{pmatrix}
   {\partial \over \partial x_0} \Psi_p(x_0, x_1) & {\partial \over \partial x_1} \Psi_p(x_0, x_1) & 0 & \ldots & 0 & 0 \\
   0 & {\partial \over \partial x_1} \Psi_p(x_1, x_2) & {\partial \over \partial x_2} \Psi_p(x_1, x_2) & 0 & \ldots & 0 \\
   0 \\
-  \vdots \\
+  \vdots & & \ddots & & & \vdots \\
   0 \\
   {\partial \over \partial x_0} \Psi_p(x_{n-1}, x_0) & 0 & \ldots & 0 & 0 & {\partial \over \partial x_{n-1}} \Psi_p(x_{n-1}, x_0) \\
 \end{pmatrix}
 $$
 
-\subsection{Calculating coefficients}
+\subsection{Recovering the trace}
+Let $\phi$ be the $q$-th Frobenius and $\phi^*$ be the induced Frobenius on differentials, 
+we have that $c = Tr(\phi) = \phi + \hat{\phi}$ so investigating the
+action of the Frobenius on the invariant differential $\omega$ we see that
+\begin{eqnarray}
+ [Tr(\phi)]^*(\omega)&=& [Tr(\phi)](\omega) \nonumber \\
+		     &=& (\phi + \hat{\phi})^*(\omega) \nonumber \\
+		     &=& \phi^*(\omega) + \hat{\phi}^*(\omega) \nonumber \\
+		     &=& \hat{\phi}^*(\omega) \nonumber
+\end{eqnarray}
+Where the last equality is using the fact that $\phi^* = 0$ since $\phi$ is inseperable, we thus
+get that $\hat{\phi}^*(\omega) = c\omega$ 
+So instead of working with $\phi$ we work with its dual $\hat{\phi}$ and the dual
+of the $p$-th Frobenius $\hat{\sigma}$. Our diagrams [ref] will be turned around so we get commutative
+squares
+$$
+\xymatrix {
+  \mathscr{E}^{i+1} \ar[r]^{\hat{\sigma}_{i+1}} \ar[d]^\pi & \mathscr{E}^i \ar[d]^\pi \\
+  E^{i+1} \ar[r]^{\hat{\sigma}_{i+1}} & E^i 
+}
+$$
+
+Letting $\hat{\mathscr{F}_q}$ be the lifted of the dual $q$-th Frobenius we have that
+$\hat{\mathscr{F}_q} = \hat{\sigma} \hat{\sigma} \ldots \hat{\sigma}$.
+So if $\omega_i = \omega^{\sigma^i}$ we have that $\hat{\sigma}_i^*(\omega_i) = c_i \omega_{i+1}$.
+A calculation then yields, using that $\sigma_i^* = c_i$
+\begin{eqnarray}
+  \hat{\mathscr{F}}_q(\omega) &=& (\hat{\sigma}_1 \circ \hat{\sigma}_2 \circ \ldots \circ \hat{\sigma}_{n-1})(\omega) \nonumber \\
+			      &=& ([c_1] \circ \ldots \circ [c_{n-1}](\omega) \nonumber \\
+			      &=& [c_1\ldots c_{n-1}](\omega) \nonumber
+\end{eqnarray}
+Since $\hat{\mathscr{F}}_q(\omega) = c \omega$ we have that
+$$ c = \prod_{i=1}^{n-1} c_i \quad (mod\, q) $$
+
+
 
 \end{document}
