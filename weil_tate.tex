@@ -7,7 +7,10 @@ $$ P \mapsto nP $$
 has order $n^2$.
 \end{prop}
 \begin{proof}
- Dual isogeny.
+The shortest proof relies heavily on the dual isogeny, so letting $d = deg [n]$ and using the properties of 
+the dual isogeny we calculate
+$$ [d] = \widehat{[n]}[n] = [n][n] = [n^2] $$
+and since $End(E)$ is torsion free by [silverman-ref] we get that $d = n^2$.
 \end{proof}
 
 A subgroup of $E(k)$ that will be of special interest to us is the group of points $P$
@@ -49,6 +52,19 @@ $$ g(X + S)^n = (f \circ [n])(X + S) = f([n]X + [n]S) = f([n]X) = g(X)^n $$
 $$ e_n : E[n] \times E[n] \rightarrow \mu_n$$
 $$ (S,T) \mapsto \frac{g(X + S)}{g(X)} $$
 \end{mydef}
+
+\begin{prop}
+ The Weil pairing $e_n$ satisfies the following properties
+\begin{enumerate}
+ \item Bilinear in both variables. $e_n(P_1 + P_2, Q) = e_n(P_1,Q)e_n(P_2,Q)$ and similarly for the other variable.
+ \item Alternating: $e_n(P,Q) = e_n(Q,P)^{-1}$.
+ \item Non-degenerate: If $e_n(P,Q) = 1$ for all $P \in E[n]$ then $Q=O$.
+ \item Galois invariant: For all $\sigma \in Gal(\bar{k}/k)$ we have $e_n(P,Q)^\sigma = e_n(\sigma(P),\sigma(Q))$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+ Bevis 1, 3 og 4.
+\end{proof}
 
 \begin{prop}
 We have the following isomorphism of abelian groups

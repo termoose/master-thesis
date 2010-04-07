@@ -289,3 +289,29 @@ We have thus established the group isomorphism which we again will call $\sigma$
 $$ \sigma : Div^0(E)/Prin(E) = Pic^0(E) \rightarrow E(\bar{k}) $$
 
 \end{proof}
+
+\begin{mydef}
+ An \emph{isogeny} between two elliptic curves $E_1$ and $E_2$ is a morphism $\phi: E_1 \rightarrow E_2$
+which satisfies $\phi(O) = O$. In addition, two curves are said to be \emph{isogenous} (of degree $n$) 
+if there exists a non-zero isogeny (of degree $n$) between them.
+\end{mydef}
+
+Note that $\phi: E_1 \rightarrow E_2$ induces a map on Picard groups
+$$\phi^*: Pic^0(E_2) \rightarrow Pic^0(E_1)$$
+In addition we have isomorphisms $E_1 \overset{s_1}{\simeq} Pic^0(E_1)$ and 
+$E_2 \overset{s_2}{\simeq} Pic^0(E_2)$, combining this gives a composition
+$$ E_2 \overset{s_2^{-1}}{\rightarrow} Pic^0(E_2) \overset{\phi^*}{\rightarrow} Pic^0(E_1)
+\overset{s_1^{-1}}{\rightarrow} E_1 $$
+
+\begin{prop}
+ The composition above is the \emph{dual isogeny} of $\phi$, denoted $\widehat{\phi}: E_2 \rightarrow E_1$.
+It has the following properties 
+\begin{enumerate}
+ \item $\widehat{\phi}\phi = [deg(\phi)]$ on $E_1$ and $\phi\widehat{\phi} = [deg(\phi)]$ on $E_2$
+ \item If $\psi: E_2 \rightarrow E_3$ is another isogeny then $\widehat{\psi \phi} = \widehat{\phi}\widehat{\psi}$
+ \item If $\lambda: E_1 \rightarrow E_2$ is another isogeny then $\widehat{\phi+\phi} = \widehat{\phi}+\widehat{\psi}$
+ \item $deg(\widehat{\phi}) = deg(\phi)$.
+ \item $\widehat{\widehat{\phi}} = \phi$.
+\end{enumerate}
+
+\end{prop}
