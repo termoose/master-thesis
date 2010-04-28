@@ -57,6 +57,7 @@ recover the $j$-invariants to desired precision. Setting up the Jacobian matrix 
 of $\Theta$, the iteration is given by
 $$ \bar{x}_{n+1} = \bar{x}_n - J_\Theta^{-1} \Theta(\bar{x}_n) $$
 where the matrix $J_\Theta(x_0, x_1, \ldots, x_{n-1})$ is given as 
+
 $$
 \begin{pmatrix}
   {\partial \over \partial x_0} \Psi_p(x_0, x_1) & {\partial \over \partial x_1} \Psi_p(x_0, x_1) & 0 & \ldots & 0 & 0 \\
@@ -79,8 +80,11 @@ action of the Frobenius on the invariant differential $\omega$ we see that
 		     &=& \hat{\phi}^*(\omega) \nonumber
 \end{eqnarray}
 Where the last equality is using the fact that $\phi^* = 0$ since $\phi$ is inseperable, we thus
-get that $\hat{\phi}^*(\omega) = c\omega$ 
-So instead of working with $\phi$ we work with its dual $\hat{\phi}$ and the dual
+get that $\hat{\phi}^*(\omega) = c\omega$.
+Recall from [alg-geo-kapittel] that $\frac{dx}{y}$ is also holomorphic and invariant under translation,
+so for the rest of this section we define our invariant differential as such
+$$ \omega = \frac{dx}{y} $$
+Instead of working with $\phi$ we work with its dual $\hat{\phi}$ and the dual
 of the $p$-th Frobenius $\hat{\sigma}$. Our diagrams [ref] will be turned around so we get commutative
 squares
 $$
@@ -104,4 +108,45 @@ $$ c = \prod_{i=1}^{n-1} c_i \quad (mod\, q) $$
 It then remains for us to calculate each $c_i$ for every lifted $p$-th Frobenius
 endomorphism $\hat{\sigma}_i$.
 
+From [ref-silverman eller tidligere prop] we have that there exists a commutative triangle
+$$
+\xymatrix{
+  \mathscr{E}_{i+1} \ar[rr]^{\widehat{\sigma}_{i+1}} \ar[dr]^{v_{i}} && \mathscr{E}_i \\
+  & \mathscr{E}_{i+1}/\ker(\widehat{\sigma}_{i+1}) \ar[ur]^{\lambda_i} & 
+}
+$$
 
+From formulas due to Velu (see [velu original] and [atsushi sato]) we can calculate the map
+$v_i$ and the Weierstrass equation for the curve $\mathscr{E}_{i+1}/\ker(\widehat{\sigma}_{i+1})$.
+This means that in order to investigate the action of
+$\widehat{\sigma}_{i+1}$ on the invariant differential for all $i$ amount to investigating
+how the composition $\lambda_i v_i$ acts. In addition, if we let $v_i^*$ be the map induced 
+on differentials then by the formulas of Velu it has trivial action on the invariant differential $\omega$.
+It is then enough to calculate how the isomorphism $\lambda_i$ acts on the invariant differential. 
+Given the Weierstrass equations for our curves
+$$ \mathscr{E}_{i+1}/\ker(\sigma_{i+1}): y^2 = x^3 + \alpha_{i+1}x + \beta_{i+1}$$
+$$ \mathscr{E}_i: y^2 = x^3 + a_i x + b_i $$
+$$ \lambda_i: \mathscr{E}_{i+1}/\ker(\sigma_{i+1}) \rightarrow \mathscr{E}_i $$
+The function which preserves the coefficients of the curves is given by
+$$(x,y) \mapsto (u_i^2 x, u_i^3 y) $$
+Calculating how this acts on the curve we get the curve
+$$ y^2 = x^3 + u_i^{-4} a_i x + u_i^{-6} b_i$$
+comparing coefficients we get the two equalities
+$$ u_i^{-4} a_i = \alpha_{i+1} \text{ and } u_i^{-6} b_i = \beta_{i+1} $$
+Solving for $u_i^2$ we get
+$$ u_i^2 = \frac{\alpha_{i+1} b_i}{\beta_{i+1} a_i} $$
+and we have our isomorphism. Now for calculating how $\lambda_i$ acts on the holomorphic
+differential $\omega=\frac{dx}{y}$ we recall [ref til indusert på differensialer] and calculate
+\begin{eqnarray}
+ \lambda_i^*(\frac{1}{y} dx) &=& \lambda_i^*(\frac{1}{y}) d(\lambda_i^*(x)) \nonumber \\
+			     &=& \frac{1}{u_i^3 y} d(u_i^2 x) \nonumber \\
+			     &=& \frac{u_i^2 dx}{u_i^3 y} \nonumber \\
+			     &=& u_i^{-1} \omega \nonumber
+\end{eqnarray}
+From our commutative triangle we thus have that
+$$ \widehat{\sigma_i}^*(\omega_i) = c_i = (\lambda_i v_i)^*(\omega_i) = \lambda_i^*(\omega_i) = u_i^{-1}\omega_{i+1}$$
+so we have found $c_i$ for all $i$, its square is given by
+$$ c_i^2 = \frac{\beta_{i+1} a_i}{\alpha_{i+1} b_i} $$
+By our product formula for $c$ we have the the square of $c$ given as
+$$ c^2 = \prod_{i=1}^{n-1} c_i = \prod_{i=1}^{n-1} \frac{\beta_{i+1} a_i}{\alpha_{i+1} b_i} $$
+Taking the square root we obtain the trace $c$ up to sign.

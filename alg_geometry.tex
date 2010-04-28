@@ -158,14 +158,14 @@ $$ div: \bar{k}(C)^* \rightarrow Div(C)$$
 $ D = div(f) $ for some non-zero $f\in \bar{k}(C)$. This is exactly
 the image of the function $div$ and we denote this set by $Prin(C)$.
 Note that since divisors of rational functions have the same number of poles
-and zeros (when counted correctly), we have $deg(div(f)) = 0$. [EGET TEOREM?]
-\end{mydef}
+and zeros (when counted correctly), we have $deg(div(f)) = 0$.
 
 Two divisors are said to be \emph{equivalent} denoted $D_1 \sim D_2$ if
 their difference is a principal divisor, $D_1 - D_2 = div(f)$ for some $f$. In
 addition we can put a partial ordering on $Div(C)$, saying that a divisor $D$ is
 \emph{positive} $\sum n_P(P)=D \geq 0$ if $n_P \geq 0$ for every $P\in C$. Furthermore
 we write $D_1 \geq D_2$ to indicate that $D_1 - D_2$ is positive.
+\end{mydef}
 
 \begin{ex}
  Inequalities can easily summarize some key properties of a function. So instead of
@@ -209,11 +209,12 @@ element $\omega \in \Omega_C$ is of the form
 $$ \omega = \sum f_i dx_i $$
 \end{mydef}
 
+The divisor of a differential is given by
+$$ div(\omega) = \sum_{P\in C} ord_P(\omega)(P) \in Div(C)$$
 Divisors in the image of the map $div: \Omega_C \rightarrow Pic(C)$ are called
 \emph{canonical divisors}. They will play a role in the next theorem which will
 serve as an important tool for calculating the dimension of the vector space
 $\mathscr{L}(D)$, which will be crucial in establishing an important isomorphism.
-It will also serve as a definition of the genus $g$.
 
 \begin{thm}
  \textbf{(Riemann-Roch)}
@@ -246,6 +247,20 @@ which gives a useful criterion for determining when a map is separable.
  Let $\phi: C_1 \rightarrow C_2$ be a map of curves, then $\phi$ is separable if and only if
 the induced map $\phi^*: \Omega_{C_2} \rightarrow \Omega_{C_1} $ is non-zero.
 \end{prop}
+
+Before leaving the realm of differentials for a while we introduce a special differential.
+\begin{mydef}
+The \emph{invariant differential} on $E: y^2 = x^3 + ax + b$ is given by
+$$\omega = \frac{dx}{\frac{d}{dy} y^2 - x^3  - ax - b} = \frac{dx}{2y} $$
+\end{mydef}
+This is a \emph{holomorphic} differential, having no poles or zeros [AEC-ref]. The name comes from it
+being invariant under the translation isomorphism
+$$ t_Q: E \rightarrow E$$
+$$ P \mapsto P + Q$$
+as shown in [AEC-ref]. We note that since $t_Q^*(\omega) = \omega$ we have that
+$t_Q^*(k\omega) = k t_Q^*(\omega) = k\omega$ for any integer $k$. Especially we have that
+$2\omega = \frac{dx}{y}$ is also invariant under translation, this differential will be used
+in section [satoh-ref].
 
 \begin{thm}
  $$ sum: Pic^0(C) \rightarrow E(\bar{k}) $$

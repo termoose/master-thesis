@@ -1,0 +1,58 @@
+\section{Modular polynomials}
+This section will serve as an introduction to modular polynomials.
+I will be following [LANG-ref] and [silverman II], and I refer to those for a more thorough examination
+with proofs.
+
+These polynomials get their name from the theory of modular functions. That is a topic which is
+well beyond the scope of this article, but they are functions invariant under some fractional linear
+transform. 
+
+Given a matrix
+$$ \gamma = \begin{pmatrix}
+ a & b \\ c & d
+\end{pmatrix} \in SL_2(\mathbb{Z})$$
+we can define an action of $\gamma$ on some $\tau \in \mathbb{C}$ as
+$$\gamma(\tau) = \frac{a\tau + b}{c\tau + d} $$
+
+Recall that an elliptic curve over $\mathbb{C}$ is isomorphic to a lattice
+$$\Lambda = \mathbb{Z}\omega_1 + \mathbb{Z}\omega_2$$ in $\mathbb{C}$.
+Letting $\tau = \frac{\omega_1}{\omega_2}$ we consider the $j$-invariant as a function
+on the upper half-plane. $j(\tau)$ is the $j$-invariant of the curve given by such a lattice.
+
+It can be shown that $j$ is a modular function of weight $0$ satisfying
+$$ j(\tau) = j(\tau + 1) \quad \text{and} \quad j(\tau) = j(-\frac{1}{\tau}) $$
+These are exactly the transformations given by the matrices
+$$ \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \quad \text{and} \quad
+   \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} $$
+It can be shown that these matrices generate the modular group $SL_2(\mathbb{Z})$,
+so we have that
+$$j(\tau) = j(\alpha \tau) \quad \alpha \in SL_2(\mathbb{Z}) $$
+
+We are not so much interested in how $j$ stays invariant under the modular group,
+but rather how it is acted upon by matrices of the bigger group $GL_2(\mathbb{Z})$.
+We thus define
+$$ j \alpha(\tau) = j\left(\frac{a\tau + b}{c\tau + d}\right) $$
+to be the $j$-invariant of the curve given by the lattice $\mathbb{Z}+\mathbb{Z}\tau'$
+with $$\tau' = \frac{a\tau + b}{c\tau + d}$$
+
+Letting $n$ be a positive integer we define a subgroup
+$$ S_n^* = \{ \alpha = \begin{pmatrix} a & b \\ 0 & d \end{pmatrix} | \det(\alpha)=n,\, \gcd(a,b,d)=1,\, 0 \leq b < d \} \subset GL_2(\mathbb{Z}) $$
+It can be shown that if $n = \ell$ a prime number we have that $\#S_n^* = \ell + 1$.
+
+\begin{mydef}
+ The \emph{modular polynomial of degree $\ell$} is given by
+$$\Phi_\ell(x,j) = \Phi_\ell(j,x) = \prod_{\alpha \in S_\ell^*}(x - j \alpha) $$
+and is of degree $\ell-1$.
+\end{mydef}
+Notice that the roots of the above polynomials is by definition some $j'$ which is one of transformations
+of $j$ under the subgroup $S_\ell^*$. The next theorem gives us a connection between the roots of the
+modular polynomial and isogenies between elliptic curves, a proof can be found in [serge lang].
+
+\begin{thm}
+ Let $E_1$ and $E_2$ be two elliptic curves with $j$-invariants $j(E_1)$ and $j(E_2)$ respectively.
+Then there exits an isogeny $f: E_1 \rightarrow E_2$ with $\ker(f)$ cyclic of size $\ell$ if and only if
+$$\Phi_\ell(j(E_1), j(E_2)) = 0 $$
+\end{thm}
+
+This theorem holds in any field of characteristic $0$ and for a finite field of characteristic $p$ where
+$\ell \neq p$.

@@ -27,14 +27,14 @@ $$ [\quad]: \mathbb{Z} \rightarrow End(E_1) $$
 A calculation then yields 
 \begin{eqnarray*} 
  [\langle \phi,\psi \rangle] &=& [deg(\phi+\psi)]-[deg(\phi)]-[deg(\psi)] \nonumber \\
-               &=& (\hat{\phi+\psi})(\phi+\psi) - \hat{\phi}\phi - \hat{\psi}\psi \nonumber \\
-	       &=& \hat{\phi}\psi + \hat{\psi}\phi
+               &=& (\widehat{\phi+\psi})(\phi+\psi) - \widehat{\phi}\phi - \widehat{\psi}\psi \nonumber \\
+	       &=& \widehat{\phi}\psi + \widehat{\psi}\phi
 \end{eqnarray*}
 The pairing is then shown to be linear in the first varible, the second variable is
 similar.
 \begin{eqnarray*}
- [\langle \phi_1+\phi_2, \psi \rangle] &=& \hat{\psi}(\phi_1+\phi_2) + (\hat{\phi_1+\phi_2})\psi \nonumber \\
-			 &=& (\hat{\psi}\phi_1+\hat{\phi_1}\psi) + (\hat{\psi}\phi_2 + \hat{\phi_2}\psi) \nonumber \\
+ [\langle \phi_1+\phi_2, \psi \rangle] &=& \widehat{\psi}(\phi_1+\phi_2) + (\widehat{\phi_1+\phi_2})\psi \nonumber \\
+			 &=& (\widehat{\psi}\phi_1+\widehat{\phi_1}\psi) + (\widehat{\psi}\phi_2 + \widehat{\phi_2}\psi) \nonumber \\
 			 &=& [\langle \phi_1,\psi \rangle] + [\rangle \phi_2,\psi \rangle] 
 \end{eqnarray*}
 \end{proof}
@@ -129,4 +129,25 @@ get $$tr(\psi_\ell) = 1 + deg(\psi_\ell) - deg(1-\psi_\ell)$$ by substituting wi
 Frobenius endomorphism on $T_\ell(E)$ and setting $\tau = tr(\phi_q)$ we get
 $$\#E(k) = 1 + q - \tau$$
 where we know from Hasse's theorem [ref?] that $|\tau| \leq 2\sqrt{q}$.
+
+
+The next proposition will be used in section [satoh-ref], it is easy to prove and gives a nice
+expression of the Frobenius in terms of the dual isogeny.
+
+\begin{prop}
+ Let $\phi: E \rightarrow E$ be the $q^{th}$ Frobenius endomorphism and $\widehat{\phi}$ its dual, then
+the following holds
+$$ t = tr(\phi) = \phi + \widehat{\phi}$$
+\end{prop}
+\begin{proof}
+ Recall that $1-\phi$ is seperable, so $$(1-\phi)(\widehat{1-\phi}) = deg(1-\phi) = \#ker(1-\phi) = \#E(k)$$
+Expanding the product on the left we get
+\begin{eqnarray}
+ (1-\phi)(\widehat{1-\phi}) &=& (1-\phi)(1-\widehat{\phi}) \nonumber \\
+			    &=& 1 - (\phi + \widehat{\phi}) + \phi\widehat{\phi} \nonumber \\
+			    &=& 1 - (\phi + \widehat{\phi}) + q \nonumber
+\end{eqnarray}
+From before we had that $\#E(k) = q + 1 - t$ and we just calculated that $\#E(k) = q + 1 - (\phi +\widehat{\phi})$ so
+the result follows.
+\end{proof}
 

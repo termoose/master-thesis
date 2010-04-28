@@ -20,12 +20,39 @@ hei hei
 \maketitle
 \tableofcontents
 
-\include{alg_geometry}
-\include{weil_tate}
-\include{frobenius}
-\section{Modular polynomials}
-\include{schoof}
+%\include{alg_geometry}
+%\include{weil_tate}
+%\include{frobenius}
+%\include{modular}
+%\include{schoof}
+%\include{p-adic}
+%\include{satoh}
+%\section{Run-time analysis}
+
 \section{P-adic numbers}
-\include{satoh}
-\section{Run-time analysis}
+There are several definitions of $p$-adic integers, we will start with the easiest. Later we
+will see an algebraic contruction using inverse limits.
+\begin{mydef}
+ A $p$-adic integer is a formal power series with coefficients $a_i \in \mathbb{Z}/p\mathbb{Z}$
+$$ \sum_{i=0}^{\infty} a_i p^i $$
+\end{mydef}
+With this in mind you can identify a $p$-adic integer with a sequence of coefficients
+$(a_i)_{i > 0}$. This is in fact a Cauchy sequence with the $p$-adic metric in $\mathbb{Q}$ given as follows:
+let $x$ be a rational number then we can write $x = p^n \frac{a}{b}$ where $p$ does not divide $a$ or $b$.
+If they do not contain $p$ as a factor we set $n=0$. We then let the $p$-adic metric be given as
+$|x|_p = p^{-n}$. This is similar to how the real numbers are constructed using equivalence classes
+of Cauchy sequences from analysis.
+
+Already we can see that the ring of $p$-adic integers is not countable. We do this by taking
+a countable sequence of $p$-adic integers
+$$a = \sum a_i p^i \quad b = \sum b_i p^i \quad c = \sum c_i p^i \quad \ldots $$
+then we construct a new $p$-adic integer
+$$x = \sum x_i p^i $$
+where we choose $x_0 \neq a_0$, $x_1 \neq b_1$, $x_2 \neq c_2$, $\ldots$
+This new $p$-adic integer is different from those already in the set, thus they do not
+exhaust the whole set of $p$-adic integers. This shows that a mapping from $\mathbb{N}$ into
+the $p$-adic integers is never a surjection.
+
+
+
 \end{document}
