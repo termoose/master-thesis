@@ -1,3 +1,99 @@
 \section{P-adic numbers}
-Working with a field of characteristic $0$ is + motivasjon.
+There are several definitions of $p$-adic integers, we will start with the easiest. Later we
+will see an algebraic contruction using inverse limits.
+\begin{mydef}
+ A $p$-adic integer is a formal power series with coefficients $a_i \in \mathbb{Z}/p\mathbb{Z}$
+$$ \sum_{i=0}^{\infty} a_i p^i $$
+We denote the set of $p$-adic integers by $\mathbb{Z}_p$.
+\end{mydef}
+With this in mind you can identify a $p$-adic integer with a sequence of coefficients
+$(a_i)_{i > 0}$. This is in fact a Cauchy sequence with the $p$-adic metric in $\mathbb{Q}$ given as follows:
+let $x$ be a rational number then we can write $x = p^n \frac{a}{b}$ where $p$ does not divide $a$ or $b$.
+If they do not contain $p$ as a factor we set $n=0$. We then let the $p$-adic metric be given as
+$|x|_p = p^{-n}$. This is similar to how the real numbers are constructed using equivalence classes
+of Cauchy sequences from analysis.
 
+Already we can see that the ring of $p$-adic integers is not countable. We do this by taking
+a countable sequence of $p$-adic integers
+$$a = \sum a_i p^i \quad b = \sum b_i p^i \quad c = \sum c_i p^i \quad \ldots $$
+then we construct a new $p$-adic integer
+$$x = \sum x_i p^i $$
+where we choose $x_0 \neq a_0$, $x_1 \neq b_1$, $x_2 \neq c_2$, $\ldots$
+This new $p$-adic integer is different from those already in the set, thus they do not
+exhaust the whole set of $p$-adic integers. This shows that a mapping from $\mathbb{N}$ into
+the $p$-adic integers is never a surjection.
+
+Addition of two $p$-adic integers is done componentwise, using a system of carries if
+the new coefficient exceeds $p-1$. This is best illustrated by an example.
+\begin{ex}
+ Let $p > 3$ with $a = 3 + 0p + 0p^2 + 0p^3 + \ldots$ and $b = (p-2) + (p-2)p + (p-2)p^2 + (p-2)p^3 + \ldots$
+two $p$-adic integers. Adding them together componentwise yields
+$$a+b = (p+1) + (p-2)p + (p-2)p^2 + (p-2)p^3 + \ldots$$
+Since the first component exceeds $p-1$ by $2$ we reduce is modulo $p$ and carry $2$ over to the next
+component, giving us
+$$a+b = 1 + (p-2+2)p + (p-2)p^2 + (p-2)p^3 + \ldots$$
+The second component now exceeds $p-1$ by $1$, so reducing it modulo $p$ and carrying the $1$ gives
+$$a+b = 1 + 0p + (p-1)p^2 + (p-2)p^3 + \ldots$$
+There are nothing more to carry and the addition is finished. In theory you could be carrying
+forever, because recall that these are infinite formal sums.
+\end{ex}
+It is clear that every $p$-adic integer has an additive inverse thus making $\mathbb{Z}_p$ an
+abelian group under the addition we just defined. Multiplication can be done similarly
+using a system of carries to keep components in the range $0 < a_i < p$. Not all elements have
+an inverse under multiplication, for example the element $p = 0 + p + 0p^2 + \ldots$ has no inverse because
+$$ p\sum_{i=0}^{\infty} a_i p^i = a_0 p + a_1 p^2 + \ldots \neq 1$$
+We thus have that $\mathbb{Z}_p$ is a commutative ring. The next result enables us to construct a field
+of $p$-adic numbers.
+\begin{prop}
+ $\mathbb{Z}_p$ has no zero divisors (i.e. it is an integral domain).
+\end{prop}
+\begin{proof}
+ Let $a = \sum a_i p^i$ and $b = \sum b_i p^i \in \mathbb{Z}_p$ be non-zero.
+We denote by $a_v$ the first non-zero coefficient of $a$ and similarly $b_w$ the first non-zero
+coefficient of $b$. Note that $a_v, b_w \in \{0, 1, \ldots , p-1\}$, so $p$ divides neither of them.
+As a consequence $p$ does not divide their product $a_v b_w$ either. By multiplying $a$ and $b$
+we see that the first non-zero coefficient of the product $ab$ is $c_{v+w}$, the coefficient of
+$p^{v+w}$. This coefficient is defined by
+$$ c_{v+w} \equiv a_v b_w \quad (mod\, p) $$
+But since $p$ does not divide $a_v b_w$ we have that $c_{v+w} \neq 0$ and thus the product
+$ab$ can never be zero.
+\end{proof}
+Before moving on I want to view this from an entirely algebraic perspective. Again letting
+$x = \sum a_i p^i \in \mathbb{Z}_p$ we can reduce it modulo $p$, so $x \equiv a_0 \quad (mod\, p)$.
+Reducing it modulo $p^2$ gives $x \equiv a_0 + a_1p \quad (mod\, p)$, and so on. In general
+we can define reduction modulo $p^n$ as follows
+$$\pi_n: \mathbb{Z}_p \rightarrow \mathbb{Z}/p^n\mathbb{Z}$$
+$$\pi_n(x) = \sum_{i=0}^{n-1} a_i p^i \quad (mod\, p^n) $$
+In a sense we have that $\pi_n(x) = x$ when $n \rightarrow \infty$, thus we want to say that the ring
+$\mathbb{Z}/p^n\mathbb{Z}$ converges to $\mathbb{Z}_p$. This is exactly the inverse
+limit construction from homological algebra, with respect to the homomorphisms
+$$\phi_n: \mathbb{Z}/p^{n+1}\mathbb{Z} \rightarrow \mathbb{Z}/p^n\mathbb{Z} $$
+given by reduction modulo $p^n$. This gives us a commutative diagram
+$$
+\xymatrix {
+  \mathbb{Z}_p \ar[rr]^{\pi_{n+1}} \ar[drr]^{\pi_n} & & \mathbb{Z}/p^{n+1}\mathbb{Z} \ar[d]^{\phi_n} \\
+  & & \mathbb{Z}/p^n\mathbb{Z}
+}
+$$
+which we can interpret by saying that $\mathbb{Z}_p$ is closer to $\mathbb{Z}/p^{n+1}\mathbb{Z}$ than it is to
+$\mathbb{Z}/p^n\mathbb{Z}$. We have that
+$$\varprojlim \mathbb{Z}/p^n\mathbb{Z} \subseteq \prod \mathbb{Z}/p^n\mathbb{Z}$$ so a $p$-adic
+integer corresponds to a sequence $(a_n)_{n\leq0}$.
+Given $x=(x_0, x_1, \ldots) \in \mathbb{Z}_p$ we have that 
+$$\pi_n(x) = \phi_n\pi_{n+1}(x) \implies x_n \equiv x_{n+1} \quad (mod\, p^{n+1})$$
+The $n^{th}$ elements of this sequence are the partial sums $x_n = \sum_{i=0}^{n-1} x_i p^i$.
+
+Now since $\mathbb{Z}_p$ is an integral domain we can form its quotient field, $Quot(\mathbb{Z}_p)$
+which we denote by
+$$\mathbb{Q}_p = \{\frac{a}{b}\, |\, a,b \in \mathbb{Z}_p, b\neq 0\}$$ 
+
+Letting $q=p^r$ we can construct the ring $\mathbb{Z}_q$, this is similar to the construction
+of $\mathbb{F}_q$ from $\mathbb{F}_p$. It is convenient to introduce the notation
+$\pi=\pi_1$, which is viewed as the projection down to $\mathbb{Z}/p\mathbb{Z}$.
+We then let $f \in \mathbb{Z}_p[x]$ be a polynomial
+of degree $r$ such that $\pi(f) \in \mathbb{Z}/p\mathbb{Z}[x]$ is irreducible.
+Our new ring of $q$-adic integers is then given by the quotient
+$$\mathbb{Z}_q = \mathbb{Z}_p[x]/(f) $$
+This is again an integral domain  and we can form its quotient field $Quot(\mathbb{Z}_q) = \mathbb{Q}_q$,
+which we call \emph{the field of $p$-adic numbers}. It is the field that we will
+be lifting to in Satoh's algorithm.

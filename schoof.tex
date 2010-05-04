@@ -1,10 +1,17 @@
 \section{Schoof's algorithm and improvements}
 \subsection{Division polynomials}
+The idea of Schoof's algorithm is to calculate the Frobenius trace modulo small primes,
+then assemble this information using the Chinese remainder theorem. Chosing the set
+of small primes such that their product $N > 4 \sqrt q$ (with $q$ the size of our
+field) gives us the trace $t$ modulo $N$, which by the Hasse bound is exactly
+the Frobenius trace.
+
 Recall for this section that an elliptic curve corresponds to a lattice $\Lambda$
 so we have an isomorphism
 $$ \bar{k}/\Lambda \simeq E(\bar{k}) $$
 $$ z \mapsto (\wp(z), \wp '(z)) $$
-where $\wp(z)$ is the elliptic Weierstrass function. 
+where $\wp(z)$ is the elliptic Weierstrass function
+$$\wp(z) = \frac{1}{z^2} + \sum_{k=1}^\infty c_k z^{2k} $$
 
 \begin{mydef}
  The \emph{division polynomials} are polynomials $\Psi_n(x,y) \in \mathbb{Z}[x,y,A,B]$
@@ -29,9 +36,8 @@ where the product is taken over all $n$-torsion points of $\bar{k}/\Lambda$, den
 $\bar{k}/\Lambda[n]$. This function has roots at exactly the $n$-torsion points by definition,
 which is at least what we want. A more throrough examination of this method can be found
 in [serge lang-ref].
-
-Another way which is more elementary by highly computational is to work explicitly
-with the addition formulas for elliptic curves. + mer forklaring.
+Another way which is more elementary but highly computational is to work explicitly
+with the addition formulas for elliptic curves.
 
 Replacing the terms $y^2$ in $\Psi_n$ by $x^3 + Ax + B$ we obtain polynomials $\Psi_n '$ in
 $\mathbb{F}_q[x]$ if is $n$ is odd or $y \mathbb{F}_q[x]$ if $n$ is even. To avoid
@@ -49,7 +55,7 @@ $$
 $$ nP = (x - \frac{\Psi_{n-1} \Psi_{n+1}}{\Psi_n^2}, \frac{\Psi_{n+2} \Psi_{n-1}^2 - \Psi_{n-2} \Psi_{n+1}^2}{4y \Psi_n^3} )$$
 \end{prop}
 
-\subsection{Computing the number of points}
+\subsection{Schoof's algorithm}
 For an elliptic curve over $\mathbb{F}_q$ given by
 $$ E: y^2 = x^3 + Ax + B $$
 we want to compute the size of $\#E(\mathbb{F}_q)$, we know from before that
@@ -60,12 +66,12 @@ $$ |\#E(\mathbb{F}_q)-q-1|=|t| < 2\sqrt{q} $$
 Let $S = \{3, 5, 7, 11, \ldots \, L \}$ be the set of odd primes $\leq L$ such
 that the product is bigger than the Hasse interval
 $$ N = \prod_{\ell \in S} \ell  > 4\sqrt{q} $$
-If we can then calculate $t\, (mod\quad \ell)$ for all $\ell \in S$ we can uniquely
-determine $t\,(mod N)$ by invoking the Chinese remainder theorem,
+If we can then calculate $t\, (\mod \ell)$ for all $\ell \in S$ we can uniquely
+determine $t\,(\mod N)$ by invoking the Chinese remainder theorem,
 which then by the Hasse bound is our Frobenius trace $t$.
 
-The argument above is the gist of Schoof's algorithm, we will now look at
-how to calculate $t\, (mod \ell)$. Let $\phi$ be the Frobenius endomorphism
+We will now look at
+how to calculate $t\, (\mod \ell)$. Let $\phi$ be the Frobenius endomorphism
 resticted to $E[\ell]$ and let $q_\ell$, $\tau$ be $q$ and $t$ reduced modulo $\ell$
 respectively. The computation of $\tau$ can then be done by checking if
 $$ \phi^2(P) + q_\ell P = \tau \phi(P) $$
@@ -92,11 +98,11 @@ x^{q^2} = \begin{cases}
 $$
 We thus get two equations and we want to verify they have any solutions $P \in E[\ell]$. For
 doing this we compute the following greatest common divisors
-$$ gcd((x^{q^2} - x)f_{q_\ell}^2 (x^3+Ax+B)+f_{q_\ell-1}(x) f_{q_\ell+1}(x), f_\ell(x)) \quad (q_\ell \text{ even)}$$
-$$ gcd((x^{q^2} - x)f_{q_\ell}^2(x)+f_{q_\ell-1}(x) f_{q_\ell+1}(x) (x^3+Ax+B), f_\ell(x)) \quad (q_\ell \text{ odd)}$$
+$$ \gcd((x^{q^2} - x)f_{q_\ell}^2 (x^3+Ax+B)+f_{q_\ell-1}(x) f_{q_\ell+1}(x), f_\ell(x)) \quad (q_\ell \text{ even)}$$
+$$ \gcd((x^{q^2} - x)f_{q_\ell}^2(x)+f_{q_\ell-1}(x) f_{q_\ell+1}(x) (x^3+Ax+B), f_\ell(x)) \quad (q_\ell \text{ odd)}$$
 We are now going to treat the rest in two cases, depending on the value from the above gcds.
 
-\textbf{Case 1:} $gcd \neq 1$ meaning there exist a non-zero $\ell$-torsion point $P$ such that $\phi^2(P) = \pm q_\ell P$.
+\textbf{Case 1:} $\gcd \neq 1$ meaning there exist a non-zero $\ell$-torsion point $P$ such that $\phi^2(P) = \pm q_\ell P$.
 If $\phi^2 (P) = -q_\ell P$ we have that $\tau \phi(P) = 0$ but since $\phi(P) \neq 0$ we know that $\tau = 0$.
 If $\phi^2(P) = q_\ell P$ we have that 
 $$ 2 q_\ell P = \tau \phi(P) \Leftrightarrow \phi(P) = \frac{2 q_\ell}{\tau} $$
@@ -104,7 +110,7 @@ Substituting the last equality into $\phi^2(P) = q_\ell P$ we obtain
 $$ \frac{4 q_\ell^2}{\tau^2} = q_\ell P \Leftrightarrow 4 q_\ell P = \tau^2 P $$
 We thus obtain the congruence $\tau^2 \equiv 4q_\ell \quad (mod \ell)$
 
-\textbf{Case 2:} $gcd = 1$ so $\phi^2(P) \neq \pm q_\ell P$ meaning the two points are 
+\textbf{Case 2:} $\gcd = 1$ so $\phi^2(P) \neq \pm q_\ell P$ meaning the two points are 
 not equal nor are they on the same vertical line for any $\ell$-torsion point $P$. 
 This enables us to do the addition $\phi^2(P) + q_\ell P$ using the appropriate addition formulas.
 Recall that if $P = (x_1, y_1)$ and $Q = (x_2, y_2)$ are two points on $E$ with
@@ -116,6 +122,7 @@ We can now write out the addition explicitly in terms of polynomials as follows
 $$ \lambda = \frac{\Psi_{q_\ell+2} \Psi_{q_\ell-1}^2 - \Psi_{q_\ell-2}\Psi_{q_\ell+1}^2 - 4y^{q^2+1}\Psi_{q_\ell}^3}
 		  {4\Psi_{q_\ell} y ((x-x^{q^2})\Psi_{q_\ell}^2 - \Psi_{q_\ell-1}\Psi_{q_\ell+1}} $$
 with the left hand side given by
+
 $$\phi^2 (P) + q_\ell P = \left(-x^{q^2}-x+\frac{\Psi_{q_\ell-1}\Psi_{q_\ell+1}}{\Psi_{q_\ell}^2}+\lambda^2,
 		     -y^{q^2}-\lambda\left(-2x^{q^2}-x+\frac{\Psi_{q_\ell-1}\Psi_{q_\ell+1}}{\Psi_{q_\ell}^2}\right)\right)$$
 The right hand side is as before given by
@@ -158,7 +165,7 @@ which by a diagram chase yields $ E' \simeq E/C $. This argument gives us the fo
 prime.
 \end{prop}
 Figuring out if $\ell$ is an Elkies prime can thus be done fast by calculating
-$$gcd(\Phi_\ell(j(E), x), x^q - x)$$
+$$\gcd(\Phi_\ell(j(E), x), x^q - x)$$
 Now since we are working only with primes of this type we restrict ourself to working
 in the subspace $C$ of order $\ell$. There is thus a factor $G_\ell(x)$ of the division polynomial
 which has the $x$-coordinates of points in $C$ as roots. Since
@@ -180,7 +187,7 @@ The obstacle that remains is how we can possible calculate the factor
 $$ G_\ell(x) = \prod_{(x',y')\in C} (x-x')$$
 of the division polynomialwhere the product is taken over all 
 unique points $P = (x', y')$ up to sign. When calculating the gcd
-$gcd(\Phi_\ell(j(E), x), x^q - x)$ we obtain a polynomial whos roots
+$\gcd(\Phi_\ell(j(E), x), x^q - x)$ we obtain a polynomial whos roots
 (at most two) are the $j$-invariants of the $\ell$-isogenous curves
 $\tilde{E} = E/C$ where $C$ is the eigenspace corresponding to $\lambda$.
 The next theorem enables us to calculate an explicit formula for the Weierstrass
@@ -219,3 +226,38 @@ $$ J = -\frac{j'^2 \Psi_{\ell, xx}(j, \tilde{j}) + 2\ell j' \tilde{j'} \Psi_{\el
 +\ell^2 \tilde{j'}^2 \Psi_{\ell, yy}(j, j')}{j' \Psi_{\ell, x}(j, j')} $$
 Here $j'= -j \frac{E_6}{E_4}$ and similarly $\tilde{j'} = -\tilde{j} \frac{\tilde{E_6}}{\tilde{E_4}}$.
 \end{thm}
+
+Given the value of $p_1$ we can calculate the rest of the coefficients using a theorem from [schoof-ref].
+\begin{thm}
+ Let $\ell \neq char(k)$ be a prime, and $\phi: E \rightarrow \widetilde{E}$ be an isogeny with $\ker(\phi)$
+cyclic of size $\ell$, then the polynomial $G_\ell(x)$ which vanishes on the $x$-coordinates of
+elements of $\ker(\phi)$ satisfies
+$$ z^{\ell-1}G_\ell(\wp(z)) = exp(-\frac{1}{2}p_1 z^2 - \sum_{k=1}^\infty \frac{\widetilde{c}_k-\ell c_k}{(2k+1)(2k+2)}z^{2k+2})$$
+\end{thm}
+\begin{proof}
+ The proof of Schoof uses analytic theory heavily, he introduces the Weierstrass $\zeta$-function
+which is defined by
+$$\zeta(z) = \frac{1}{z} - \sum_{k=1}^\infty \frac{c_k}{2k+1} z^{2k+1} $$
+Differentiating we see that $\zeta'(z) = - \wp(z)$. Let $\Lambda = \omega_1 \mathbb{Z}+\omega_2\mathbb{Z}$
+be the lattice corresponding to $E$ and then we have that
+$\widetilde{\Lambda} = \frac{\omega_1}{\ell}\mathbb{Z}+\omega_2\mathbb{Z}$ is the lattice corresponding
+to $\widetilde{E}$. Setting $\zeta$ and $\widetilde{\zeta}$ to be the Weierstrass $\zeta$-functions for
+$E$ and $\widetilde{E}$ respectively, Schoof eventually arrives at the equality
+$$-\ell \zeta(z)+\widetilde{\zeta}(z)-p_1 z = \sum_{i=1}^{(\ell-1)/2} \frac{\wp'(z)}{\wp(z)-\wp(\frac{i}{\ell}\omega_1)} $$
+Notice that $\frac{d}{dz} \wp(z) - \wp(\frac{i}{\ell}\omega_1) = \wp'(z)$ so we can invert the process
+of logaritmic differention
+$$ \frac{df}{dz} = \frac{f'}{f}$$
+on both sides of the equality, setting $$f(z) = \prod_{i=1}^{(\ell-1)/2}(\wp(z)-\wp(\frac{i}{\ell}\omega_1)$$
+
+A thurough proof can be found in [schoof-ref].
+\end{proof}
+
+The coefficients of $G_\ell(x)$ can thus be obtained by expanding both sides of
+the equality from the previous theorem and comparing the coefficients of like powers of $z$.
+Setting $w=z^2$ and letting $A(w)$ be the function on the right-hand side of the equality
+expanded as a power series in $w$. Also let $C(w) = \wp(z) - \frac{1}{w} = \sum_{k=1}^\infty c_k w^k$,
+the Weierstrass $\wp$-function with the first term removed. For notational convenience we
+write $[B(w)]_j$ for the coefficient of $w^j$ in the power series $B(w)$. Letting $g_i$ be the
+coefficient of $x^i$ in $G_\ell(x) = x^d + \sum_{i=0}^{d-1} g_i x^i$ with $d = \frac{\ell-1}{2}$ 
+we get the recursion
+$$g_{d-i} = [A(w)]_i - \sum_{k=1}^i \left( \sum_{j=0}^k \binom{d-i+k}{k-j} [C(w)^{k-j}]_j \right) g_{d-i+k} $$
