@@ -10,7 +10,7 @@ has order $n^2$.
 The shortest proof relies heavily on the dual isogeny, so letting $d = deg [n]$ and using the properties of 
 the dual isogeny we calculate
 $$ [d] = \widehat{[n]}[n] = [n][n] = [n^2] $$
-and since $End(E)$ is torsion free by [silverman-ref] we get that $d = n^2$.
+and since $End(E)$ is torsion free \cite{AEC} we get that $d = n^2$.
 \end{proof}
 
 A subgroup of $E(k)$ that will be of special interest to us is the group of points $P$
@@ -27,7 +27,7 @@ and indentity based encryption.
 
 The pairing we want to construct is of the form
 $$ e_n : E[n] \times E[n] \rightarrow \mu_n $$
-Let $T\in E[n]$ be an $n$-torsion point. From [et teorem] we know that there exists
+Let $T\in E[n]$ be an $n$-torsion point. From \cite{Lawrence} we know that there exists
 $f \in \bar{k}(E)$ such that $div(f) = n(T) - n(O)$. Now letting $T' \in E[n^2]$ be such
 that $nT' = T$, we have a function $g \in \bar{k}(E)$ such that
 $$ div(g) = \sum_{R\in E[n]} (T'+R)-(R) $$
@@ -78,7 +78,8 @@ The last proposition enables us to view automorphism of $E[n]$ as $2\times 2$ in
 so we obtain a  mod $\ell$ galois representation
 $$ Gal(\bar{k}/k) \overset{\rho}{\rightarrow} Aut(E[n]) \simeq GL_2(\mathbb{Z}/m\mathbb{Z}) $$
 To avoid working with congruences and instead work with equalities, we can construct
-and work with a field of characteristic 0. This is done by taking the inverse limit of the sequence
+and work with a field of characteristic 0. This is done by taking the inverse limit 
+as introduced in chapter \ref{p-adic} of the sequence
 $$ \dots \overset{[l]}{\rightarrow} E[\ell^{n+1}] \overset{[l]}{\rightarrow} E[\ell^{n}] \overset{[l]}{\rightarrow} E[\ell^{n-1}] \rightarrow \ldots $$
 $$ T_\ell(E) = \varprojlim E[\ell^n] $$
 This is called the \emph{$\ell$-adic Tate module} of E. Notice that since each the groups $E[\ell^n]$ has a

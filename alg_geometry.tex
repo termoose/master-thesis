@@ -232,8 +232,9 @@ on function fields $\phi^*: K(C_2) \rightarrow K(C_1)$. From this again we get a
 map on differential forms
 $$ \phi^*: \Omega_{C_2} \rightarrow \Omega_{C_1} $$
 $$ \phi^*\left(\sum f_i dx_i\right) = \sum (\phi^* f_i) d(\phi^* x_i) $$
+\label{diff}
 
-\begin{mydef}
+\begin{mydef} 
  Let $\phi: C_1 \rightarrow C_2$ be a map of curves and $\phi^*$ its induced map on
 function fields. We then say that $\phi$ is a \emph{seperable map} if
 $K(C_1)/\phi^* K(C_2)$ is a seperable extension.
@@ -243,7 +244,7 @@ Recall that a field extension is separable if and only if the derivative of the 
 polynomial for each element is non-zero. This fact is the motivation for our next result,
 which gives a useful criterion for determining when a map is separable.
 
-\begin{prop}
+\begin{prop} \label{diffsep}
  Let $\phi: C_1 \rightarrow C_2$ be a map of curves, then $\phi$ is separable if and only if
 the induced map $\phi^*: \Omega_{C_2} \rightarrow \Omega_{C_1} $ is non-zero.
 \end{prop}
@@ -253,14 +254,14 @@ Before leaving the realm of differentials for a while we introduce a special dif
 The \emph{invariant differential} on $E: y^2 = x^3 + ax + b$ is given by
 $$\omega = \frac{dx}{\frac{d}{dy} y^2 - x^3  - ax - b} = \frac{dx}{2y} $$
 \end{mydef}
-This is a \emph{holomorphic} differential, having no poles or zeros [AEC-ref]. The name comes from it
+This is a \emph{holomorphic} differential, having no poles or zeros \cite{AEC}. The name comes from it
 being invariant under the translation isomorphism
 $$ t_Q: E \rightarrow E$$
 $$ P \mapsto P + Q$$
-as shown in [AEC-ref]. We note that since $t_Q^*(\omega) = \omega$ we have that
+as shown in \cite{AEC}. We note that since $t_Q^*(\omega) = \omega$ we have that
 $t_Q^*(k\omega) = k t_Q^*(\omega) = k\omega$ for any integer $k$. Especially we have that
 $2\omega = \frac{dx}{y}$ is also invariant under translation, this differential will be used
-in section [satoh-ref].
+in section \ref{satoh} \label{invariant}.
 
 \begin{thm}
  $$ sum: Pic^0(C) \rightarrow E(\bar{k}) $$

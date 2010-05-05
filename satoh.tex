@@ -1,4 +1,4 @@
-\section{Satoh's algorithm}
+\section{Satoh's algorithm} \label{satoh}
 Forklaring og overblikk over de forskjellige subsection-ene.
 
 This algorithm is divided into two parts, first we do what is called a \emph{lifting}, then
@@ -6,7 +6,7 @@ we recover the trace of the Frobenius from the lifted data.
 
 \subsection{Lifting the j-invariants}
 We begin by establishing some notation, so let $\mathbb{F}_q$ be our finite field with $q=p^n$ as before,
-$\mathbb{Z}_p$ the $p$-adic integers and $\mathbb{Q}_q$ the $q$-adic rationals as defined in section [ref].
+$\mathbb{Z}_p$ the $p$-adic integers and $\mathbb{Q}_q$ the $q$-adic rationals as defined in section \ref{p-adic}.
 For this section we let $\sigma$ be the $p$-th frobenius, and $\phi_q$ be the $q$-th frobenius.
 As for previous sections we denote the curves over our finite fields as $E/\mathbb{F}_q$,
 for the lifted curves we write $\mathscr{E}/\mathbb{Q}_q$.
@@ -19,7 +19,7 @@ where $\Phi_p$ is the $p$-th modular polynomial has a unique solution $J \in \ma
 which is the $j$-invariant of the canonical lift $\mathscr{E}$ of $E$.
 \end{thm}
 The latter theorem gives an efficient way of calculating the $j$-invariants, in addition it has
-been shown [deuring-ref] that the canonical lift always exists and is unique (up to isomorphism).
+been shown \cite{Deuring} that the canonical lift always exists and is unique (up to isomorphism).
 
 Knowing $j(\mathscr{E})$ we can explicitly write out the Weierstrass equation for $\mathscr{E}$, but
 instead of lifting $E$ to $\mathscr{E}$ directly we can consider all its conjugates
@@ -81,11 +81,11 @@ action of the Frobenius on the invariant differential $\omega$ we see that
 \end{eqnarray}
 Where the last equality is using the fact that $\phi^* = 0$ since $\phi$ is inseperable, we thus
 get that $\hat{\phi}^*(\omega) = c\omega$.
-Recall from [alg-geo-kapittel] that $\frac{dx}{y}$ is also holomorphic and invariant under translation,
+Recall from \ref{invariant} that $\frac{dx}{y}$ is also holomorphic and invariant under translation,
 so for the rest of this section we define our invariant differential as such
 $$ \omega = \frac{dx}{y} $$
 Instead of working with $\phi$ we work with its dual $\hat{\phi}$ and the dual
-of the $p$-th Frobenius $\hat{\sigma}$. Our diagrams [ref] will be turned around so we get commutative
+of the $p$-th Frobenius $\hat{\sigma}$. Our diagrams will be turned around so we get commutative
 squares
 $$
 \xymatrix {
@@ -108,7 +108,7 @@ $$ c = \prod_{i=1}^{n-1} c_i \quad (mod\, q) $$
 It then remains for us to calculate each $c_i$ for every lifted $p$-th Frobenius
 endomorphism $\hat{\sigma}_i$.
 
-From [ref-silverman eller tidligere prop] we have that there exists a commutative triangle
+From \cite{AEC} we have that there exists a commutative triangle
 $$
 \xymatrix{
   \mathscr{E}_{i+1} \ar[rr]^{\widehat{\sigma}_{i+1}} \ar[dr]^{v_{i}} && \mathscr{E}_i \\
@@ -116,7 +116,7 @@ $$
 }
 $$
 
-From formulas due to Velu (see [velu original] and [atsushi sato]) we can calculate the map
+From formulas due to Vélu (see \cite{Velu} or \cite{Sato}) we can calculate the map
 $v_i$ and the Weierstrass equation for the curve $\mathscr{E}_{i+1}/\ker(\widehat{\sigma}_{i+1})$.
 This means that in order to investigate the action of
 $\widehat{\sigma}_{i+1}$ on the invariant differential for all $i$ amount to investigating
@@ -136,7 +136,7 @@ $$ u_i^{-4} a_i = \alpha_{i+1} \text{ and } u_i^{-6} b_i = \beta_{i+1} $$
 Solving for $u_i^2$ we get
 $$ u_i^2 = \frac{\alpha_{i+1} b_i}{\beta_{i+1} a_i} $$
 and we have our isomorphism. Now for calculating how $\lambda_i$ acts on the holomorphic
-differential $\omega=\frac{dx}{y}$ we recall [ref til indusert på differensialer] and calculate
+differential $\omega=\frac{dx}{y}$ we recall from \ref{diff} and calculate
 \begin{eqnarray}
  \lambda_i^*(\frac{1}{y} dx) &=& \lambda_i^*(\frac{1}{y}) d(\lambda_i^*(x)) \nonumber \\
 			     &=& \frac{1}{u_i^3 y} d(u_i^2 x) \nonumber \\

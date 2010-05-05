@@ -35,7 +35,7 @@ $$ f_n(z) = n^2 \prod(\wp(z) - \wp(u)) $$
 where the product is taken over all $n$-torsion points of $\bar{k}/\Lambda$, denoted
 $\bar{k}/\Lambda[n]$. This function has roots at exactly the $n$-torsion points by definition,
 which is at least what we want. A more throrough examination of this method can be found
-in [serge lang-ref].
+in \cite{Serge}.
 Another way which is more elementary but highly computational is to work explicitly
 with the addition formulas for elliptic curves.
 
@@ -60,7 +60,7 @@ For an elliptic curve over $\mathbb{F}_q$ given by
 $$ E: y^2 = x^3 + Ax + B $$
 we want to compute the size of $\#E(\mathbb{F}_q)$, we know from before that
 $$ \#E(\mathbb{F}_q) = q + 1 - t $$
-where $t$ is the trace of the Frobenius as seen in section [referanse]. We know
+where $t$ is the trace of the Frobenius as seen in chapter \ref{frob}. We know
 that $t$ satisfies the Hasse bound namely
 $$ |\#E(\mathbb{F}_q)-q-1|=|t| < 2\sqrt{q} $$
 Let $S = \{3, 5, 7, 11, \ldots \, L \}$ be the set of odd primes $\leq L$ such
@@ -174,7 +174,7 @@ unique points up to sign. In this way we get that the degree of $G_\ell(x)$ is $
 
 From the theory of eigenvalues we know that if $\lambda_1, \lambda_2$ are
 eigenvalues of $\phi$ then $$tr(\phi) = \lambda_1 + \lambda_2$$
-We also know using [referanse] that $$\lambda_1 \lambda_2 = det(\phi) = q $$
+We also know using proposition \ref{detdeg} that $$\lambda_1 \lambda_2 = det(\phi) = q $$
 Using this we can recover the trace of $\phi$ by calculating one of the eigenvalues
 $$ \tau \equiv \lambda + \frac{q}{\lambda} \quad (mod\, \ell) $$
 To compute the eigenvalue $\lambda$ we can thus check which of the relations
