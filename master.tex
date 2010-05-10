@@ -2,6 +2,30 @@
 \usepackage{amsthm,mathrsfs}
 \usepackage[all,cmtip]{xy}
 
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+%\def\codefont{
+%  \fontspec{Courier New}
+%  \fontsize{9pt}{11pt}\selectfont}
+%\definecolor{codebgcolor}{HTML}{EDEDED}
+\newenvironment{code}%
+    {
+    \begin{center}
+    \begin{tikzpicture}
+    \node [fill=gray!30,rounded corners=5pt]
+    \bgroup
+   % \bgroup\codefont
+    \begin{tabular}{l}
+    }%
+    {
+    \end{tabular}
+    %\egroup
+    \egroup;
+    \end{tikzpicture}
+    \end{center}
+    }%
+
 %opening
 \title{Counting points on elliptic curves}
 \author{Ole Andre Birkedal}
@@ -23,9 +47,9 @@ hei hei
 %\include{alg_geometry}
 %\include{p-adic}
 %\include{weil_tate}
-\include{frobenius}
+%\include{frobenius}
 %\include{modular}
-\include{schoof}
+%\include{schoof}
 \include{satoh}
 %\section{Run-time analysis}
 
