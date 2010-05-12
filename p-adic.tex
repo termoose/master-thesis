@@ -1,6 +1,7 @@
 \section{$p$-adic numbers} \label{p-adic}
 There are several definitions of $p$-adic integers, we will start with the easiest. Later we
-will see an algebraic contruction using inverse limits.
+will see an algebraic contruction using inverse limits as found in \cite{Rotman}. For this
+chapter we will closely be following \cite{Robert}.
 \begin{mydef}
  A $p$-adic integer is a formal power series with coefficients $a_i \in \mathbb{Z}/p\mathbb{Z}$
 $$ \sum_{i=0}^{\infty} a_i p^i $$
@@ -66,7 +67,7 @@ $$\pi_n: \mathbb{Z}_p \rightarrow \mathbb{Z}/p^n\mathbb{Z}$$
 $$\pi_n(x) = \sum_{i=0}^{n-1} a_i p^i \quad (mod\, p^n) $$
 In a sense we have that $\pi_n(x) = x$ when $n \rightarrow \infty$, thus we want to say that the ring
 $\mathbb{Z}/p^n\mathbb{Z}$ converges to $\mathbb{Z}_p$. This is exactly the inverse
-limit construction from homological algebra, with respect to the homomorphisms
+limit construction from homological algebra \cite{Rotman}, with respect to the homomorphisms
 $$\phi_n: \mathbb{Z}/p^{n+1}\mathbb{Z} \rightarrow \mathbb{Z}/p^n\mathbb{Z} $$
 given by reduction modulo $p^n$. This gives us a commutative diagram
 $$
@@ -81,7 +82,7 @@ $$\varprojlim \mathbb{Z}/p^n\mathbb{Z} \subseteq \prod \mathbb{Z}/p^n\mathbb{Z}$
 integer corresponds to a sequence $(a_n)_{n\leq0}$.
 Given $x=(x_0, x_1, \ldots) \in \mathbb{Z}_p$ we have that 
 $$\pi_n(x) = \phi_n\pi_{n+1}(x) \implies x_n \equiv x_{n+1} \quad (mod\, p^{n+1})$$
-The $n^{th}$ elements of this sequence are the partial sums $x_n = \sum_{i=0}^{n-1} x_i p^i$.
+The $n^{th}$ elements of this sequence is the partial sum $x_n = \sum_{i=0}^{n-1} x_i p^i$.
 
 Now since $\mathbb{Z}_p$ is an integral domain we can form its quotient field, $Quot(\mathbb{Z}_p)$
 which we denote by
@@ -95,5 +96,5 @@ of degree $r$ such that $\pi(f) \in \mathbb{Z}/p\mathbb{Z}[x]$ is irreducible.
 Our new ring of $q$-adic integers is then given by the quotient
 $$\mathbb{Z}_q = \mathbb{Z}_p[x]/(f) $$
 This is again an integral domain  and we can form its quotient field $Quot(\mathbb{Z}_q) = \mathbb{Q}_q$,
-which we call \emph{the field of $p$-adic numbers}. It is the field that we will
+which we call \emph{the field of $q$-adic numbers}. It is this field that we will
 be lifting to in Satoh's algorithm.

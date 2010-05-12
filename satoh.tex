@@ -116,7 +116,7 @@ $$
 }
 $$
 
-From formulas due to Vélu (see \cite{Velu} or \cite{Sato}) we can calculate the map
+From formulas due to V\'{e}lu (see \cite{Velu} or \cite{Sato}) we can calculate the map
 $v_i$ and the Weierstrass equation for the curve $\mathscr{E}_{i+1}/\ker(\widehat{\sigma}_{i+1})$.
 This means that in order to investigate the action of
 $\widehat{\sigma}_{i+1}$ on the invariant differential for all $i$ amount to investigating
@@ -164,8 +164,8 @@ of the $p^{th}$ division polynomial $\Psi_{i+1}$. Here the product is taken over
 the kernel excluding the identity $O$ and up to sign. Since $\#\ker(\widehat{\sigma}_{i+1}) = p$ we have
 that $\deg(H_i(x)) = \frac{p-1}{2}$.
 
-The following result is due to Satoh and serves as a modified Hensel lifting \cite{padic}, it can be found
-can be found in \cite{Satoh} and \cite{Handbook}.
+The following result is due to Satoh and serves as a modified Hensel lifting \cite{Robert}, it can be found
+in \cite{Satoh} and \cite{Handbook}.
 \begin{prop}
  Let $p\geq 3$ be a prime and $\Psi(x) \in \mathbb{Z}_p[x]$ such that $\Psi'(x) \equiv 0\, (mod\, p)$ and
 $\Psi'(x) \not\equiv 0\, (mod\, p^2)$. Let $h(x) \in \mathbb{Z}_p[x]$ be a monic polynomial such that
@@ -178,3 +178,11 @@ $$H(x) = h(x) + \left(\left(\frac{\Psi(x)}{\Psi'(x)} h'(x)\right)\,(mod\, h(x))\
 satisfies $H(x) \equiv h(x) (mod\, p^n)$ and $\Psi(x) \equiv F(x)H(x) (mod \, p^{2n+1})$ for some $F(x)$.
 \end{prop}
 This gives us the following algorithm, as seen in \cite{Handbook}.
+\begin{code}
+\begin{lstlisting}
+if N = 1 then
+  H(x) = h(x) such that $\Psi_p(x)$
+else
+  N' = n
+\end{lstlisting}
+\end{code}

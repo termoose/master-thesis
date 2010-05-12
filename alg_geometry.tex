@@ -2,7 +2,8 @@
 \section{Algebraic geometry}
 In this section we define the fundamental objects in algebraic geometry and state
 some facts about their structure. We will then move on to the theory of
-curves and Weil divisors.
+curves and Weil divisors. We will closely be following \cite{AEC} with some aid from
+\cite{Fulton}.
 
 \begin{mydef}
 \emph{Projective n-space} over a field $k$ denoted $\mathbb{P}^n$ is the set 
@@ -157,6 +158,8 @@ $$ div: \bar{k}(C)^* \rightarrow Div(C)$$
  The \emph{principal divisors} of $C$ are the divisors of the form
 $ D = div(f) $ for some non-zero $f\in \bar{k}(C)$. This is exactly
 the image of the function $div$ and we denote this set by $Prin(C)$.
+\end{mydef}
+
 Note that since divisors of rational functions have the same number of poles
 and zeros (when counted correctly), we have $deg(div(f)) = 0$.
 
@@ -165,7 +168,6 @@ their difference is a principal divisor, $D_1 - D_2 = div(f)$ for some $f$. In
 addition we can put a partial ordering on $Div(C)$, saying that a divisor $D$ is
 \emph{positive} $\sum n_P(P)=D \geq 0$ if $n_P \geq 0$ for every $P\in C$. Furthermore
 we write $D_1 \geq D_2$ to indicate that $D_1 - D_2$ is positive.
-\end{mydef}
 
 \begin{ex}
  Inequalities can easily summarize some key properties of a function. So instead of
@@ -183,17 +185,18 @@ $\bar{k}$-vector space.
 $$ \mathscr{L}(D) = \{ f\in \bar{k}(C) : div(f) \geq -D \} \cup \{ 0\} $$
 \end{mydef}
 
+This vector space can be seen to be finite by the next proposition, a proof of
+which can be found in \cite{Fulton}.
+
 \begin{prop}
  $\mathscr{L}(D)$ is a finite dimensional $\bar{k}$-vector space, and we denote
 its dimension by
 $$ \ell(D) = dim_{\bar{k}} \mathscr{L}(D) $$
 \end{prop}
-\begin{proof}
- First note that if $D' > D$ then $D' = D + P_1 \ldots P_s$, so we get an ascending chain of
-subspaces
-$$ \mathscr{L}(D) \subseteq \mathscr{L}(D+P_1) \subseteq \ldots \subseteq \mathscr{L}(D+P_1 \ldots P_s) $$
 
-\end{proof}
+Next we introduce differential forms on our curves, these will be useful for different purposes
+as described below. In addition they will help us state the Riemann-Roch theorem and a definition
+of the genus $g$.
 
 \begin{mydef}
  The space of differential forms on a curve $C$ is a $\bar{k}(C)$-vector space denoted $\Omega_C$
@@ -223,9 +226,9 @@ any $D \in Div(C)$ we have
 $$ \ell(D) - \ell(K_C - D) = deg(D) - g + 1 $$
 where $g \geq 0$ is called the \emph{genus} of the curve $C$.
 \end{thm}
-\begin{proof}
- A proof would be outside the scope of this paper + referanser.
-\end{proof}
+
+ A proof would be well outside the scope of this paper, but a classical proof based
+on Noether's reduction lemma can be found in \cite{Fulton}. 
 
 Given a non-constant map of curves $\phi: C_1 \rightarrow C_2$, we have an induced map
 on function fields $\phi^*: K(C_2) \rightarrow K(C_1)$. From this again we get an induced
@@ -252,7 +255,7 @@ the induced map $\phi^*: \Omega_{C_2} \rightarrow \Omega_{C_1} $ is non-zero.
 Before leaving the realm of differentials for a while we introduce a special differential.
 \begin{mydef}
 The \emph{invariant differential} on $E: y^2 = x^3 + ax + b$ is given by
-$$\omega = \frac{dx}{\frac{d}{dy} y^2 - x^3  - ax - b} = \frac{dx}{2y} $$
+$$\omega = \frac{dx}{\frac{d}{dy}\left(y^2 - x^3  - ax - b\right)} = \frac{dx}{2y} $$
 \end{mydef}
 This is a \emph{holomorphic} differential, having no poles or zeros \cite{AEC}. The name comes from it
 being invariant under the translation isomorphism

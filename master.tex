@@ -1,14 +1,22 @@
 \documentclass[a4paper,10pt,latin1]{amsart}
 \usepackage{amsthm,mathrsfs}
 \usepackage[all,cmtip]{xy}
+\usepackage{listings}
 
 \usepackage{tikz}
 \usepackage{pgfplots}
 
-%\def\codefont{
-%  \fontspec{Courier New}
-%  \fontsize{9pt}{11pt}\selectfont}
-%\definecolor{codebgcolor}{HTML}{EDEDED}
+%opening
+\title{Counting points on elliptic curves}
+\author{Ole Andre Birkedal}
+
+\begin{document}
+\newtheorem{thm}{Theorem}
+\newtheorem{mydef}{Definition}
+\newtheorem{ex}{Example}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+
 \newenvironment{code}%
     {
     \begin{center}
@@ -26,35 +34,32 @@
     \end{center}
     }%
 
-%opening
-\title{Counting points on elliptic curves}
-\author{Ole Andre Birkedal}
-
-\begin{document}
-\newtheorem{thm}{Theorem}
-\newtheorem{mydef}{Definition}
-\newtheorem{ex}{Example}
-\newtheorem{prop}{Proposition}
-\newtheorem{lemma}{Lemma}
-
 \begin{abstract}
-hei hei
+Elliptic curve cryptography is a fairly new approach to public-key cryptography.
+The elliptic curve chosen should be such that its number of points is divisible by
+a large prime factor. Ideally there should be a prime number of points on the curve.
+
+In this paper we present the first efficient point counting algorithm due to Schoof,
+before given a significant improvement due to Elkies. In the final section I give Satoh's
+algorithm which is even faster and has paved the way for the field of $p$-adic point counting.
+A thorough introduction to algebraic geometry and the theory of elliptic curves is given along the way.
 \end{abstract}
 
 \maketitle
+
 \tableofcontents
 
-%\include{alg_geometry}
-%\include{p-adic}
-%\include{weil_tate}
-%\include{frobenius}
-%\include{modular}
-%\include{schoof}
+\include{alg_geometry}
+\include{p-adic}
+\include{weil_tate}
+\include{frobenius}
+\include{modular}
+\include{schoof}
 \include{satoh}
-%\section{Run-time analysis}
 
 
 \bibliographystyle{apalike}
 \bibliography{refs}
+\nocite{*}
 
 \end{document}
