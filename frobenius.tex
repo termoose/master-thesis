@@ -10,7 +10,7 @@ which induces a map on curves as follows
 $$ \phi: E(k) \rightarrow E^{\phi}(k) $$
 $$ (x_0,\ldots , x_n) \mapsto (x_0^p, \ldots , x_n^p) $$
 where $E^{\phi}$ is the curve $E$ with $\phi$ applied to its coefficients.
-$$E: y^2 = x^3 + ax + b \quad E: y^2 = x^3 + \phi(a)x + \phi(b) $$
+$$E: y^2 = x^3 + ax + b \quad E^{\phi}: y^2 = x^3 + \phi(a)x + \phi(b) $$
 \end{mydef}
 
 We can apply the Frobenius endomorphism $r$ times $$\phi^r(x) = x^{p^r} = x^q$$
@@ -27,10 +27,10 @@ is a positive quadratic form.
 \begin{proof}
  Clearly $deg(f) = deg(-f)$. The only thing that takes a proof is the
 bilinearity of the pairing
-$$ End(E_1, E_2) \times End(E_1, E_2) \rightarrow \mathbb{Z}$$
+$$ Hom(E_1, E_2) \times Hom(E_1, E_2) \rightarrow \mathbb{Z}$$
 $$ (\phi, \psi) \mapsto deg(\phi + \psi) - deg(\phi) - deg(\psi) $$
 For this proof we will make extentive use of the dual isogeny, but first
-notice that we have an injection of multiplication by $n$ maps:
+notice that we have an injection of multiplication by $n$ maps
 $$ [\quad]: \mathbb{Z} \rightarrow End(E_1) $$
 A calculation then yields 
 \begin{eqnarray*} 

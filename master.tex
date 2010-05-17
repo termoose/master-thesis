@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt,latin1]{amsart}
+\documentclass[a4paper,11pt,latin1]{amsart}
 \usepackage{amsthm,mathrsfs}
 \usepackage[all,cmtip]{xy}
 \usepackage{listings}
@@ -16,23 +16,6 @@
 \newtheorem{ex}{Example}
 \newtheorem{prop}{Proposition}
 \newtheorem{lemma}{Lemma}
-
-\newenvironment{code}%
-    {
-    \begin{center}
-    \begin{tikzpicture}
-    \node [fill=gray!30,rounded corners=5pt]
-    \bgroup
-   % \bgroup\codefont
-    \begin{tabular}{l}
-    }%
-    {
-    \end{tabular}
-    %\egroup
-    \egroup;
-    \end{tikzpicture}
-    \end{center}
-    }%
 
 \begin{abstract}
 Elliptic curve cryptography is a fairly new approach to public-key cryptography.
