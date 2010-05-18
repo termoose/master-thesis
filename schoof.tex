@@ -1,5 +1,4 @@
 \section{Schoof's algorithm and improvements}
-\subsection{Division polynomials}
 The idea of Schoof's algorithm is to calculate the Frobenius trace modulo small primes,
 then assemble this information using the Chinese remainder theorem. Chosing the set
 of small primes such that their product $N > 4 \sqrt q$ (with $q$ the size of our
@@ -35,7 +34,7 @@ $$ f_n(z) = n^2 \prod(\wp(z) - \wp(u)) $$
 where the product is taken over all $n$-torsion points of $\bar{k}/\Lambda$, denoted
 $\bar{k}/\Lambda[n]$. This function has roots at exactly the $n$-torsion points by definition,
 which is at least what we want. A more throrough examination of this method can be found
-in \cite{Serge}.
+in \cite{Lang}.
 Another way which is more elementary but highly computational is to work explicitly
 with the addition formulas for elliptic curves.
 
@@ -66,12 +65,12 @@ $$ |\#E(\mathbb{F}_q)-q-1|=|t| < 2\sqrt{q} $$
 Let $S = \{3, 5, 7, 11, \ldots \, L \}$ be the set of odd primes $\leq L$ such
 that the product is bigger than the Hasse interval
 $$ N = \prod_{\ell \in S} \ell  > 4\sqrt{q} $$
-If we can then calculate $t\, (\mod \ell)$ for all $\ell \in S$ we can uniquely
-determine $t\,(\mod N)$ by invoking the Chinese remainder theorem,
+If we can then calculate $t\, (mod\,\ell)$ for all $\ell \in S$ we can uniquely
+determine $t\,(mod\,N)$ by invoking the Chinese remainder theorem,
 which then by the Hasse bound is our Frobenius trace $t$.
 
 We will now look at
-how to calculate $t\, (\mod \ell)$. Let $\phi$ be the Frobenius endomorphism
+how to calculate $t\, (mod\,\ell)$. Let $\phi$ be the Frobenius endomorphism
 resticted to $E[\ell]$ and let $q_\ell$, $\tau$ be $q$ and $t$ reduced modulo $\ell$
 respectively. The computation of $\tau$ can then be done by checking if
 $$ \phi^2(P) + q_\ell P = \tau \phi(P) $$
@@ -108,7 +107,7 @@ If $\phi^2(P) = q_\ell P$ we have that
 $$ 2 q_\ell P = \tau \phi(P) \Leftrightarrow \phi(P) = \frac{2 q_\ell}{\tau} $$
 Substituting the last equality into $\phi^2(P) = q_\ell P$ we obtain
 $$ \frac{4 q_\ell^2}{\tau^2} = q_\ell P \Leftrightarrow 4 q_\ell P = \tau^2 P $$
-We thus obtain the congruence $\tau^2 \equiv 4q_\ell \quad (mod \ell)$
+We thus obtain the congruence $\tau^2 \equiv 4q_\ell \quad (mod\, \ell)$
 
 \textbf{Case 2:} $\gcd = 1$ so $\phi^2(P) \neq \pm q_\ell P$ meaning the two points are 
 not equal nor are they on the same vertical line for any $\ell$-torsion point $P$. 
@@ -135,7 +134,7 @@ polynomials $\Psi(x,y)$ of degree $\ell^2-1$. Instead we can exploit some specia
 called \emph{Elkies primes} that enables us to work in a cyclic subgroup $C$ of $E[\ell]$.
 Here $C$ will correspond to a $1$-dimensional eigenspace.
 
-The frobenius endomorphism restricted to $E[\ell]$ satisfies the characteristic equation
+The Frobenius endomorphism restricted to $E[\ell]$ satisfies the characteristic equation
 $$ \phi^2 - \tau \phi + q_\ell = 0 $$
 where $\tau$ and $q_\ell$ is as before. The roots of this equations are the eigenvalues
 of $\phi | E[\ell]$ and they are given by
@@ -155,7 +154,7 @@ Notice that we have an exact sequence of groups
 $$ 0 \rightarrow C \rightarrow E \rightarrow E/C \rightarrow 0 $$
 where the map $E \rightarrow E/C$ has cyclic kernel $C$ of order $\ell$.
 Determining which primes are Elkies primes can be done by working with the
-modular polynomials. From [ref til modulærpoly-teorem] we have that $\Phi_\ell(j(E),j(E/C)) = 0$,
+modular polynomials. From theorem \ref{modpol} we have that $\Phi_\ell(j(E),j(E/C)) = 0$,
 so letting the isogeny $f: E \rightarrow E'$ have cyclic kernel $C$ we get an exact
 sequence
 $$ 0 \rightarrow C \rightarrow E \rightarrow E' \rightarrow 0 $$
@@ -227,7 +226,7 @@ $$ J = -\frac{j'^2 \Psi_{\ell, xx}(j, \tilde{j}) + 2\ell j' \tilde{j'} \Psi_{\el
 Here $j'= -j \frac{E_6}{E_4}$ and similarly $\tilde{j'} = -\tilde{j} \frac{\tilde{E_6}}{\tilde{E_4}}$.
 \end{thm}
 
-Given the value of $p_1$ we can calculate the rest of the coefficients using a theorem from [schoof-ref].
+Given the value of $p_1$ we can calculate the rest of the coefficients using a theorem from \cite{Schoof}.
 \begin{thm}
  Let $\ell \neq char(k)$ be a prime, and $\phi: E \rightarrow \widetilde{E}$ be an isogeny with $\ker(\phi)$
 cyclic of size $\ell$, then the polynomial $G_\ell(x)$ which vanishes on the $x$-coordinates of
@@ -249,7 +248,7 @@ of logaritmic differention
 $$ \frac{df}{dz} = \frac{f'}{f}$$
 on both sides of the equality, setting $$f(z) = \prod_{i=1}^{(\ell-1)/2}(\wp(z)-\wp(\frac{i}{\ell}\omega_1)$$
 
-A thurough proof can be found in [schoof-ref].
+A thorough proof can be found in \cite{Schoof}.
 \end{proof}
 
 The coefficients of $G_\ell(x)$ can thus be obtained by expanding both sides of

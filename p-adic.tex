@@ -98,3 +98,13 @@ $$\mathbb{Z}_q = \mathbb{Z}_p[x]/(f) $$
 This is again an integral domain  and we can form its quotient field $Quot(\mathbb{Z}_q) = \mathbb{Q}_q$,
 which we call \emph{the field of $q$-adic numbers}. It is this field that we will
 be lifting to in Satoh's algorithm.
+
+\begin{mydef}
+ A $p$-adic integer $x\in \mathbb{Z}_p$ has \emph{precision $N$} if it is correct up its first $N$ terms.
+Equivalently 
+\begin{eqnarray}
+  x-\pi_N(x) &=& x_{N+1}p^{N+1} + x_{N+2}p^{N+2} + \ldots \nonumber \\
+	     &=& O(p^{N+1}) \nonumber
+\end{eqnarray}
+
+\end{mydef}

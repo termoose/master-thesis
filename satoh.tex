@@ -1,19 +1,25 @@
 \section{Satoh's algorithm} \label{satoh}
-Forklaring og overblikk over de forskjellige subsection-ene.
-
-This algorithm is divided into two parts, first we do what is called a \emph{lifting}, then
-we recover the trace of the Frobenius from the lifted data.
+This algorithm is divided into two parts. First we do what is called a \emph{lifting} to desired
+precision, then we recover the trace of the Frobenius from the lifted data.
 
 \subsection{Lifting the j-invariants}
 We begin by establishing some notation, so let $\mathbb{F}_q$ be our finite field with $q=p^n$ as before,
 $\mathbb{Z}_p$ the $p$-adic integers and $\mathbb{Q}_q$ the $q$-adic rationals as defined in section \ref{p-adic}.
-For this section we let $\sigma$ be the $p$-th frobenius, and $\phi_q$ be the $q$-th frobenius.
+For this section we let $\sigma$ be the $p^{th}$ Frobenius, and $\phi_q$ be the $q^{th}$ Frobenius.
 As for previous sections we denote the curves over our finite fields as $E/\mathbb{F}_q$,
 for the lifted curves we write $\mathscr{E}/\mathbb{Q}_q$.
 
+\begin{mydef}
+ The \emph{canonical lift $\mathscr{E}$} of an elliptic curve $E$ over $\mathbb{F}_q$ is
+an elliptic curve over $\mathbb{Q}_q$ such that $End(\mathscr{E}) \simeq End(E)$.
+\end{mydef}
+
+The existence of such a canonical lift is vital because of the isomorphic endomorphism rings. This
+enables us to lift the endomorphisms, espcially the Frobenius which we are interested in.
+
 \begin{thm}
  \textbf{(Lubin-Serre-Tate)} Let $E/\mathbb{F}_q$ be an elliptic curve with $j$-invariant $j(E)$ and
-$\sigma$ the $p$-th Frobenius on $\mathbb{Q}_q$ then the system of equations
+$\sigma$ the $p^{th}$ Frobenius on $\mathbb{Q}_q$ then the system of equations
 $$ \Phi_p(x, \sigma(x)) = 0 \quad x \equiv j(E) \, (mod\, p)$$
 where $\Phi_p$ is the $p$-th modular polynomial has a unique solution $J \in \mathbb{Z}_q$ 
 which is the $j$-invariant of the canonical lift $\mathscr{E}$ of $E$.
@@ -27,14 +33,11 @@ $$E, E^\sigma, E^{\sigma^2}, \ldots, E^{\sigma^{n-2}}, E^{\sigma^{n-1}} $$
 Letting $E^{\sigma^i} = E^i $ we get a sequence of maps
 $$ E \overset{\sigma}{\rightarrow} E^1 \overset{\sigma}{\rightarrow} E^2 \overset{\sigma}{\rightarrow}
 \ldots \overset{\sigma}{\rightarrow} E^{n-1} $$
-Where the composition is the $q$-th power Frobenius $\phi_q = \sigma \sigma \ldots \sigma: E \rightarrow E$.
+Where the composition is the $q^{th}$ Frobenius $\phi_q = \sigma \sigma \ldots \sigma: E \rightarrow E$.
 Recall that the $deg(\sigma) = p$ so from the theory of modular polynomials we have that
 $$ \Phi_p(j(E^i), j(E^{i+1})) = 0 $$
 
-\begin{mydef}
- The \emph{canonical lift $\mathscr{E}$} of an elliptic curve $E$ over $\mathbb{F}_q$ is
-an elliptic curve over $\mathbb{Q}_q$ such that $End(\mathscr{E}) \simeq End(E)$.
-\end{mydef}
+
 
 Since the endomorphism rings are isomorphic we can lift every Frobenius on $E$ to a
 Frobenius on $\mathscr{E}$. We thus obtain a commutative diagram
@@ -70,7 +73,7 @@ $$
 $$
 
 \subsection{Recovering the trace}
-Let $\phi$ be the $q$-th Frobenius and $\phi^*$ be the induced Frobenius on differentials, 
+Let $\phi$ be the $q^{th}$ Frobenius and $\phi^*$ be the induced Frobenius on differentials, 
 we have that $c = Tr(\phi) = \phi + \hat{\phi}$ so investigating the
 action of the Frobenius on the invariant differential $\omega$ we see that
 \begin{eqnarray}
@@ -85,7 +88,7 @@ Recall from \ref{invariant} that $\frac{dx}{y}$ is also holomorphic and invarian
 so for the rest of this section we define our invariant differential as such
 $$ \omega = \frac{dx}{y} $$
 Instead of working with $\phi$ we work with its dual $\hat{\phi}$ and the dual
-of the $p$-th Frobenius $\hat{\sigma}$. Our diagrams will be turned around so we get commutative
+of the $p^{th}$ Frobenius $\hat{\sigma}$. Our diagrams will be turned around so we get commutative
 squares
 $$
 \xymatrix {
@@ -94,7 +97,7 @@ $$
 }
 $$
 
-Letting $\hat{\mathscr{F}_q}$ be the lifted of the dual $q$-th Frobenius we have that
+Letting $\hat{\mathscr{F}_q}$ be the lifted of the dual $q^{th}$ Frobenius we have that
 $\hat{\mathscr{F}_q} = \hat{\sigma} \hat{\sigma} \ldots \hat{\sigma}$.
 So if $\omega_i = \omega^{\sigma^i}$ we have that $\hat{\sigma}_i^*(\omega_i) = c_i \omega_{i+1}$.
 A calculation then yields, using that $\sigma_i^* = c_i$
@@ -105,7 +108,7 @@ A calculation then yields, using that $\sigma_i^* = c_i$
 \end{eqnarray}
 Since $\hat{\mathscr{F}}_q(\omega) = c \omega$ we have that
 $$ c = \prod_{i=1}^{n-1} c_i \quad (mod\, q) $$
-It then remains for us to calculate each $c_i$ for every lifted $p$-th Frobenius
+It then remains for us to calculate each $c_i$ for every lifted $p^{th}$ Frobenius
 endomorphism $\hat{\sigma}_i$.
 
 From \cite{AEC} we have that there exists a commutative triangle
@@ -177,5 +180,16 @@ Then the polynomial
 $$H(x) = h(x) + \left(\left(\frac{\Psi(x)}{\Psi'(x)} h'(x)\right)\,(mod\, h(x))\right)$$
 satisfies $H(x) \equiv h(x) (mod\, p^n)$ and $\Psi(x) \equiv F(x)H(x) (mod \, p^{2n+1})$ for some $F(x)$.
 \end{prop}
-This gives us the following algorithm, as seen in \cite{Handbook}.
-FIXME pseudokode
+This gives us the following algorithm, as seen in \cite{Handbook}. So let the function
+$liftkernel(\Psi_p, N)$ be given as
+\begin{algorithmic}
+\REQUIRE $p$-division polynomial $\Psi_p(x)$ of $\mathscr{E}$ and precision $N$
+\IF {$N=1$} 
+        \STATE $H(x)\gets h(x)$ such that $\Psi_p(x) \equiv \delta h(x)^p (mod\, p)$
+\ELSE
+        \STATE $N'\gets \lceil\frac{N-1}{2}\rceil$
+	\STATE $H(x)\gets liftkernel(\Psi_p(x), N')$
+	\STATE $H(x)\gets H(x) + \left(\frac{H'(x)\Psi_p(x)}{\Psi_p'(x)} \, mod\, H(x) \right)\, mod\, p^N$
+\ENDIF
+\RETURN $H(x)$
+\end{algorithmic}
