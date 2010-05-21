@@ -50,11 +50,11 @@ $$
 $$
 
 Since the lifted Frobenius also has degree $p$ we have that
-$$\Phi_p(j(\mathscr{E}^i), j(\mathscr{E}^{i+1})) = 0 \quad j(\mathscr{E}^i) \equiv j(\mathscr{E}^{i+1}) \, (mod\, p) $$
-We thus define a function $\Theta: \mathbb{Z}_q^d \rightarrow \mathbb{Z}_q^d$ by
+$$\Phi_p(j(\mathscr{E}^{i+1}), j(\mathscr{E}^{i})) = 0 \quad j(\mathscr{E}^i) \equiv j(E^i) \, (mod\, p) $$
+We thus define a function $\Theta: \mathbb{Z}_q^n \rightarrow \mathbb{Z}_q^n$ by
 $$\Theta(x_0, x_1, \ldots, x_{n-1}) = (\Phi_p(x_0, x_1), \Phi_p(x_1, x_2), \ldots, \Phi_p(x_{n-1}, x_0))$$
 Note that the roots of $\Theta$ are the $j$-invariants of our lifted curves
-$$\Theta(j(\mathscr{E}), j(\mathscr{E}^2), \ldots, j(\mathscr{E}^{n-1})) = (0, 0, \ldots, 0) $$
+$$\Theta(j(\mathscr{E}^{n-1}), j(\mathscr{E}^{n-2}), \ldots, j(\mathscr{E}^0)) = (0, 0, \ldots, 0) $$
 so by solving $\Theta(\bar{x}) = 0$ using a multivariate Newton-Raphson iteration, we can
 recover the $j$-invariants to desired precision. Setting up the Jacobian matrix $J_\Theta$
 of $\Theta$, the iteration is given by
@@ -63,14 +63,41 @@ where the matrix $J_\Theta(x_0, x_1, \ldots, x_{n-1})$ is given as
 
 $$
 \begin{pmatrix}
-  {\partial \over \partial x_0} \Psi_p(x_0, x_1) & {\partial \over \partial x_1} \Psi_p(x_0, x_1) & 0 & \ldots & 0 & 0 \\
-  0 & {\partial \over \partial x_1} \Psi_p(x_1, x_2) & {\partial \over \partial x_2} \Psi_p(x_1, x_2) & 0 & \ldots & 0 \\
+  {\partial \over \partial x_0} \Phi_p(x_0, x_1) & {\partial \over \partial x_1} \Phi_p(x_0, x_1) & 0 & \ldots & 0 & 0 \\
+  0 & {\partial \over \partial x_1} \Phi_p(x_1, x_2) & {\partial \over \partial x_2} \Phi_p(x_1, x_2) & 0 & \ldots & 0 \\
   0 \\
   \vdots & & \ddots & & & \vdots \\
   0 \\
-  {\partial \over \partial x_0} \Psi_p(x_{n-1}, x_0) & 0 & \ldots & 0 & 0 & {\partial \over \partial x_{n-1}} \Psi_p(x_{n-1}, x_0) \\
+  {\partial \over \partial x_0} \Phi_p(x_{n-1}, x_0) & 0 & \ldots & 0 & 0 & {\partial \over \partial x_{n-1}} \Phi_p(x_{n-1}, x_0) \\
 \end{pmatrix}
 $$
+
+The elements on the diagonal of this matrix are given by
+$$ \frac{\partial}{\partial x_i} \Phi_p(x_i, x_{i+1}) \quad i =  0, 1, \ldots, n-1$$
+recalling the congruence relation from theorem \ref{kroenecker} we calculate
+
+\begin{eqnarray}
+ \frac{\partial}{\partial x_i} \Phi_p(x_i, x_{i+1}) &=& \frac{\partial}{\partial x_i}(x_i^p-x_{i+1})(x_i-x_{i+1}^p)\nonumber \\
+						    &=& p x_i^{p-1}(x_i-x_{i+1}^p)+(x_i^p-x_{i+1})\nonumber \\
+						    &\equiv& x_i^p-x_{i+1}\, (mod\, p) \nonumber
+\end{eqnarray}
+A smiliar calculation for the elements on the semi-diagonal shows that
+$$ \frac{\partial}{\partial x_{i+1}} \Phi_p(x_i, x_{i+1}) \equiv x_{i+1}^p - x_i \, (mod\,p) $$
+The Jacobian matrix modulo $p$ thus has non-zero diagonal elements
+\begin{eqnarray}
+ \frac{\partial}{\partial x_i} \Phi_p(j(\mathscr{E}^{i+1}), j(\mathscr{E}^i)) &\equiv& j(\mathscr{E}^{i+1})^p-j(\mathscr{E}^i) \nonumber \\
+									      &\equiv& j(\mathscr{E}^i)^{p^2}-j(\mathscr{E}^i) \nonumber \\
+									      &\not\equiv& 0 \quad (mod\, p) \nonumber
+\end{eqnarray}
+while the elements on the semi-diagonal are all zero
+\begin{eqnarray}
+ \frac{\partial}{\partial x_{i+1}} \Phi_p(j(\mathscr{E}^{i+1}), j(\mathscr{E}^i)) &\equiv& j(\mathscr{E}^i)^p-j(\mathscr{E}^{i+1}) \nonumber \\
+										  &\equiv& j(\mathscr{E}^i)^p-j(\mathscr{E}^i)^p \nonumber \\
+										  &\equiv& 0 \quad (mod\, p) \nonumber
+\end{eqnarray}
+By similar means we can show that the bottom left element is also $0$ modulo $p$, so in fact the Jacobian matrix
+$J_\Theta$ is a diagonal matrix. It is therefore certainly invertible and the Newton-Raphson iteration can be
+performed.
 
 \subsection{Recovering the trace}
 Let $\phi$ be the $q^{th}$ Frobenius and $\phi^*$ be the induced Frobenius on differentials, 
