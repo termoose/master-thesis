@@ -1,6 +1,6 @@
 \section{Modular polynomials}
 This section will serve as an introduction to modular polynomials.
-I will be following \cite{Lang2} and \cite{AAEC}, and I refer to those for a more thorough examination
+I will be following \cite{Lang2} and \cite{Adv}, and I refer to those for a more thorough examination
 with proofs.
 
 These polynomials get their name from the theory of modular functions. That is a topic which is
@@ -56,6 +56,34 @@ $$\Phi_\ell(j(E_1), j(E_2)) = 0 $$
 
 This theorem holds in any field of characteristic $0$ and for a finite field of characteristic $p$ where
 $\ell \neq p$.
+
+\begin{ex}
+ The following are the two modular polynomials $\Phi_2(x,y)$ and $\Phi_3(x,y)$. They were
+calculated using the mathematics software \emph{Sage}. 
+
+\begin{eqnarray}
+ \Phi_2(x,y) &=& -x^2y^2 + x^3 + 1488x^2y + 1488xy^2 + y^3 -\nonumber \\
+	      && 162000x^2 + 40773375xy - 162000y^2 + 8748000000x +\nonumber \\
+	      && 8748000000y - 157464000000000 \nonumber
+\end{eqnarray}
+
+\begin{eqnarray}
+  \Phi_3(x,y) &=& -x^3y^3 + 2232x^3y^2 + 2232x^2y^3 + x^4 - 1069956x^3y +\nonumber \\
+	      &&  2587918086x^2y^2-1069956xy^3 + y^4 + 36864000x^3 + \nonumber \\ 
+	      &&  8900222976000x^2y + 8900222976000xy^2+36864000y^3 +\nonumber \\
+	      &&  452984832000000x^2 - 770845966336000000xy + 452984832000000y^2+\nonumber \\
+	      &&  1855425871872000000000x + 1855425871872000000000y \nonumber
+\end{eqnarray}
+
+This clearly serves as a demonstration of how incredibly large the coefficients are. In fact the largest
+coefficient of the polynomial $\Phi_{41}(x,y)$ has size about $10^{607}$. With coefficients growing this
+rapidly it is makes these polynomials very inefficient in practice. Other variants of these polynomials
+do exist, an example is the \emph{Atkins modular polynomials}. The same coefficient for the $41^{th}$ Atkins
+polynomial is $64000000$ which is a huge improvement over the classical modular polynomials.
+
+More information about such improvements can be found in \cite{Handbook} and \cite{Blake}.
+\end{ex}
+
 
 We end this section with a theorem of Kronecker which gives us explicitly the modular polynomials
 modulo $p$.

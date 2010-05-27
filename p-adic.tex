@@ -1,6 +1,6 @@
 \section{$p$-adic numbers} \label{p-adic}
 There are several definitions of $p$-adic integers, we will start with the easiest. Later we
-will see an algebraic contruction using inverse limits as found in \cite{Rotman}. For this
+will see an algebraic construction using inverse limits as found in \cite{Rotman}. For this
 chapter we will closely be following \cite{Robert}.
 \begin{mydef}
  A $p$-adic integer is a formal power series with coefficients $a_i \in \mathbb{Z}/p\mathbb{Z}$
@@ -24,11 +24,11 @@ This new $p$-adic integer is different from those already in the set, thus they 
 exhaust the whole set of $p$-adic integers. This shows that a mapping from $\mathbb{N}$ into
 the $p$-adic integers is never a surjection.
 
-Addition of two $p$-adic integers is done componentwise, using a system of carries if
+Addition of two $p$-adic integers is done component-wise, using a system of carries if
 the new coefficient exceeds $p-1$. This is best illustrated by an example.
 \begin{ex}
  Let $p > 3$ with $a = 3 + 0p + 0p^2 + 0p^3 + \ldots$ and $b = (p-2) + (p-2)p + (p-2)p^2 + (p-2)p^3 + \ldots$
-two $p$-adic integers. Adding them together componentwise yields
+two $p$-adic integers. Adding them together component-wise yields
 $$a+b = (p+1) + (p-2)p + (p-2)p^2 + (p-2)p^3 + \ldots$$
 Since the first component exceeds $p-1$ by $2$ we reduce is modulo $p$ and carry $2$ over to the next
 component, giving us

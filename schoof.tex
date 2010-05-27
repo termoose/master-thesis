@@ -1,6 +1,6 @@
 \section{Schoof's algorithm and improvements}
 The idea of Schoof's algorithm is to calculate the Frobenius trace modulo small primes,
-then assemble this information using the Chinese remainder theorem. Chosing the set
+then assemble this information using the Chinese remainder theorem. Choosing the set
 of small primes such that their product $N > 4 \sqrt q$ (with $q$ the size of our
 field) gives us the trace $t$ modulo $N$, which by the Hasse bound is exactly
 the Frobenius trace.
@@ -33,7 +33,7 @@ a function having poles at the $n$-torsion points of our elliptic curve as follo
 $$ f_n(z) = n^2 \prod(\wp(z) - \wp(u)) $$
 where the product is taken over all $n$-torsion points of $\bar{k}/\Lambda$, denoted
 $\bar{k}/\Lambda[n]$. This function has roots at exactly the $n$-torsion points by definition,
-which is at least what we want. A more throrough examination of this method can be found
+which is at least what we want. A more thorough examination of this method can be found
 in \cite{Lang}.
 Another way which is more elementary but highly computational is to work explicitly
 with the addition formulas for elliptic curves.
@@ -71,7 +71,7 @@ which then by the Hasse bound is our Frobenius trace $t$.
 
 We will now look at
 how to calculate $t\, (mod\,\ell)$. Let $\phi$ be the Frobenius endomorphism
-resticted to $E[\ell]$ and let $q_\ell$, $\tau$ be $q$ and $t$ reduced modulo $\ell$
+restricted to $E[\ell]$ and let $q_\ell$, $\tau$ be $q$ and $t$ reduced modulo $\ell$
 respectively. The computation of $\tau$ can then be done by checking if
 $$ \phi^2(P) + q_\ell P = \tau \phi(P) $$
 holds for $P \in E[\ell]$. To perform the addition on the left hand side of the
@@ -186,7 +186,7 @@ The obstacle that remains is how we can possible calculate the factor
 $$ G_\ell(x) = \prod_{(x',y')\in C} (x-x')$$
 of the division polynomialwhere the product is taken over all 
 unique points $P = (x', y')$ up to sign. When calculating the gcd
-$\gcd(\Phi_\ell(j(E), x), x^q - x)$ we obtain a polynomial whos roots
+$\gcd(\Phi_\ell(j(E), x), x^q - x)$ we obtain a polynomial whose roots
 (at most two) are the $j$-invariants of the $\ell$-isogenous curves
 $\tilde{E} = E/C$ where $C$ is the eigenspace corresponding to $\lambda$.
 The next theorem enables us to calculate an explicit formula for the Weierstrass
@@ -195,7 +195,7 @@ equation of $\tilde{E}$.
 \begin{thm}
  Let $E$ be given by the equation
 $$ E: y^2 = x^3 + Ax + B $$
-with $j = j(E)$. Then the eqation for the $\ell$-isogenous curve $\tilde{E}$ with
+with $j = j(E)$. Then the equation for the $\ell$-isogenous curve $\tilde{E}$ with
 $\tilde{j} = j(\tilde{E})$ is given by
 $$ \tilde{E}: y^2 = x^3 + \bar{A}x + \bar{B} $$
 
@@ -244,7 +244,7 @@ to $\widetilde{E}$. Setting $\zeta$ and $\widetilde{\zeta}$ to be the Weierstras
 $E$ and $\widetilde{E}$ respectively, Schoof eventually arrives at the equality
 $$-\ell \zeta(z)+\widetilde{\zeta}(z)-p_1 z = \sum_{i=1}^{(\ell-1)/2} \frac{\wp'(z)}{\wp(z)-\wp(\frac{i}{\ell}\omega_1)} $$
 Notice that $\frac{d}{dz} \wp(z) - \wp(\frac{i}{\ell}\omega_1) = \wp'(z)$ so we can invert the process
-of logaritmic differention
+of logarithmic differentiation
 $$ \frac{df}{dz} = \frac{f'}{f}$$
 on both sides of the equality, setting $$f(z) = \prod_{i=1}^{(\ell-1)/2}(\wp(z)-\wp(\frac{i}{\ell}\omega_1)$$
 

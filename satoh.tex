@@ -15,7 +15,7 @@ an elliptic curve over $\mathbb{Q}_q$ such that $End(\mathscr{E}) \simeq End(E)$
 \end{mydef}
 
 The existence of such a canonical lift is vital because of the isomorphic endomorphism rings. This
-enables us to lift the endomorphisms, espcially the Frobenius which we are interested in.
+enables us to lift the endomorphisms, especially the Frobenius which we are interested in.
 
 \begin{thm}
  \textbf{(Lubin-Serre-Tate)} Let $E/\mathbb{F}_q$ be an elliptic curve with $j$-invariant $j(E)$ and
@@ -81,7 +81,7 @@ recalling the congruence relation from theorem \ref{kroenecker} we calculate
 						    &=& p x_i^{p-1}(x_i-x_{i+1}^p)+(x_i^p-x_{i+1})\nonumber \\
 						    &\equiv& x_i^p-x_{i+1}\, (mod\, p) \nonumber
 \end{eqnarray}
-A smiliar calculation for the elements on the semi-diagonal shows that
+A similar calculation for the elements on the semi-diagonal shows that
 $$ \frac{\partial}{\partial x_{i+1}} \Phi_p(x_i, x_{i+1}) \equiv x_{i+1}^p - x_i \, (mod\,p) $$
 The Jacobian matrix modulo $p$ thus has non-zero diagonal elements
 \begin{eqnarray}
@@ -96,47 +96,53 @@ while the elements on the semi-diagonal are all zero
 										  &\equiv& 0 \quad (mod\, p) \nonumber
 \end{eqnarray}
 By similar means we can show that the bottom left element is also $0$ modulo $p$, so in fact the Jacobian matrix
-$J_\Theta$ is a diagonal matrix. It is therefore certainly invertible and the Newton-Raphson iteration can be
-performed.
+$J_\Theta$ is a diagonal matrix modulo $p$.
+It is therefore certainly invertible and the Newton-Raphson iteration can be performed.
+
+Because of the Hasse bound we only need to calculate the lifting to a desired precision. Letting $\tau$
+be the Frobenius trace
+$$\mid \tau \mid \leq 2\sqrt{q} = 2p^{\frac{n}{2}} \leq p^{\frac{n}{2}+1} $$
+we have that the $j$-invariant must be lifted with precision $\frac{n}{2}+1$ in order to accurately recover
+the Frobenius trace.
 
 \subsection{Recovering the trace}
 Let $\phi$ be the $q^{th}$ Frobenius and $\phi^*$ be the induced Frobenius on differentials, 
-we have that $c = Tr(\phi) = \phi + \hat{\phi}$ so investigating the
+we have that $c = Tr(\phi) = \phi + \widehat{\phi}$ so investigating the
 action of the Frobenius on the invariant differential $\omega$ we see that
 \begin{eqnarray}
  [Tr(\phi)]^*(\omega)&=& [Tr(\phi)](\omega) \nonumber \\
-		     &=& (\phi + \hat{\phi})^*(\omega) \nonumber \\
-		     &=& \phi^*(\omega) + \hat{\phi}^*(\omega) \nonumber \\
-		     &=& \hat{\phi}^*(\omega) \nonumber
+		     &=& (\phi + \widehat{\phi})^*(\omega) \nonumber \\
+		     &=& \phi^*(\omega) + \widehat{\phi}^*(\omega) \nonumber \\
+		     &=& \widehat{\phi}^*(\omega) \nonumber
 \end{eqnarray}
-Where the last equality is using the fact that $\phi^* = 0$ since $\phi$ is inseperable, we thus
-get that $\hat{\phi}^*(\omega) = c\omega$.
+Where the last equality is using the fact that $\phi^* = 0$ since $\phi$ is inseparable, we thus
+get that $\widehat{\phi}^*(\omega) = c\omega$.
 Recall from \ref{invariant} that $\frac{dx}{y}$ is also holomorphic and invariant under translation,
 so for the rest of this section we define our invariant differential as such
 $$ \omega = \frac{dx}{y} $$
-Instead of working with $\phi$ we work with its dual $\hat{\phi}$ and the dual
-of the $p^{th}$ Frobenius $\hat{\sigma}$. Our diagrams will be turned around so we get commutative
+Instead of working with $\phi$ we work with its dual $\widehat{\phi}$ and the dual
+of the $p^{th}$ Frobenius $\widehat{\sigma}$. Our diagrams will be turned around so we get commutative
 squares
 $$
 \xymatrix {
-  \mathscr{E}^{i+1} \ar[r]^{\hat{\sigma}_{i+1}} \ar[d]^\pi & \mathscr{E}^i \ar[d]^\pi \\
-  E^{i+1} \ar[r]^{\hat{\sigma}_{i+1}} & E^i 
+  \mathscr{E}^{i+1} \ar[r]^{\widehat{\sigma}_{i+1}} \ar[d]^\pi & \mathscr{E}^i \ar[d]^\pi \\
+  E^{i+1} \ar[r]^{\widehat{\sigma}_{i+1}} & E^i 
 }
 $$
 
-Letting $\hat{\mathscr{F}_q}$ be the lifted of the dual $q^{th}$ Frobenius we have that
-$\hat{\mathscr{F}_q} = \hat{\sigma} \hat{\sigma} \ldots \hat{\sigma}$.
-So if $\omega_i = \omega^{\sigma^i}$ we have that $\hat{\sigma}_i^*(\omega_i) = c_i \omega_{i+1}$.
+Letting $\widehat{\mathscr{F}_q}$ be the lifted of the dual $q^{th}$ Frobenius we have that
+$\widehat{\mathscr{F}_q} = \widehat{\sigma} \widehat{\sigma} \ldots \widehat{\sigma}$.
+So if $\omega_i = \omega^{\sigma^i}$ we have that $\widehat{\sigma}_i^*(\omega_i) = c_i \omega_{i+1}$.
 A calculation then yields, using that $\sigma_i^* = c_i$
 \begin{eqnarray}
-  \hat{\mathscr{F}}_q(\omega) &=& (\hat{\sigma}_1 \circ \hat{\sigma}_2 \circ \ldots \circ \hat{\sigma}_{n-1})(\omega) \nonumber \\
+  \widehat{\mathscr{F}}_q(\omega) &=& (\widehat{\sigma}_1 \circ \widehat{\sigma}_2 \circ \ldots \circ \widehat{\sigma}_{n-1})(\omega) \nonumber \\
 			      &=& ([c_1] \circ \ldots \circ [c_{n-1}](\omega) \nonumber \\
 			      &=& [c_1\ldots c_{n-1}](\omega) \nonumber
 \end{eqnarray}
-Since $\hat{\mathscr{F}}_q(\omega) = c \omega$ we have that
+Since $\widehat{\mathscr{F}}_q(\omega) = c \omega$ we have that
 $$ c = \prod_{i=1}^{n-1} c_i \quad (mod\, q) $$
 It then remains for us to calculate each $c_i$ for every lifted $p^{th}$ Frobenius
-endomorphism $\hat{\sigma}_i$.
+endomorphism $\widehat{\sigma}_i$.
 
 From \cite{AEC} we have that there exists a commutative triangle
 $$
@@ -151,7 +157,7 @@ $v_i$ and the Weierstrass equation for the curve $\mathscr{E}_{i+1}/\ker(\wideha
 This means that in order to investigate the action of
 $\widehat{\sigma}_{i+1}$ on the invariant differential for all $i$ amount to investigating
 how the composition $\lambda_i v_i$ acts. In addition, if we let $v_i^*$ be the map induced 
-on differentials then by the formulas of Velu it has trivial action on the invariant differential $\omega$.
+on differentials then by the formulas of V\'{e}lu it has trivial action on the invariant differential $\omega$.
 It is then enough to calculate how the isomorphism $\lambda_i$ acts on the invariant differential. 
 Given the Weierstrass equations for our curves
 $$ \mathscr{E}_{i+1}/\ker(\widehat{\sigma}_{i+1}): y^2 = x^3 + \alpha_{i+1}x + \beta_{i+1}$$
@@ -182,7 +188,7 @@ From our commutative triangle we thus have that
 $$ \widehat{\sigma_i}^*(\omega_i) = c_i = (\lambda_i v_i)^*(\omega_i) = \lambda_i^*(\omega_i) = u_i^{-1}\omega_{i+1}$$
 so we have found $c_i$ for all $i$, its square is given by
 $$ c_i^2 = \frac{\beta_{i+1} a_i}{\alpha_{i+1} b_i} $$
-By our product formula for $c$ we have the the square of $c$ given as
+By our product formula for $c$ we have the square of $c$ given as
 $$ c^2 = \prod_{i=1}^{n-1} c_i = \prod_{i=1}^{n-1} \frac{\beta_{i+1} a_i}{\alpha_{i+1} b_i} $$
 Taking the square root we obtain the trace $c$ up to sign.
 

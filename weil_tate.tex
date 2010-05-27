@@ -23,7 +23,7 @@ $$ E[n] = \{ P\in E : nP = O \} $$
 We are now ready to construct a bilinear pairing between the $n$-torsion subgroups of
 an elliptic curve and the roots of unity $\mu_n$. This will prove useful to us in coming
 proofs. In addition it has well established applications within number theory, cryptography
-and indentity based encryption.
+and identity based encryption.
 
 The pairing we want to construct is of the form
 $$ e_n : E[n] \times E[n] \rightarrow \mu_n $$
@@ -72,19 +72,21 @@ Letting $\ell$ be a prime not dividing $char(k)$ we have the following isomorphi
 \end{prop}
 
 The last proposition enables us to view automorphism of $E[\ell]$ as $2\times 2$ invertible matrices,
-so we obtain a  mod $\ell$ galois representation
-$$ Gal(\bar{k}/k) \overset{\rho}{\rightarrow} Aut(E[\ell]) \simeq GL_2(\mathbb{Z}/\ell\mathbb{Z}) $$
+so we obtain a  mod $\ell$ Galois representation
+$$ Gal(\bar{k}/k) \overset{\rho}{\rightarrow} Aut(E[\ell]) \simeq GL_2(\mathbb{Z}/\ell\mathbb{Z}). $$
 To avoid working with congruences and instead work with equalities, we can construct
 and work with a field of characteristic 0. This is done by taking the inverse limit 
-as introduced in chapter \ref{p-adic} of the sequence
+as introduced in Chapter \ref{p-adic} of the sequence
 $$ \dots \overset{[l]}{\rightarrow} E[\ell^{n+1}] \overset{[l]}{\rightarrow} E[\ell^{n}] \overset{[l]}{\rightarrow} E[\ell^{n-1}] \rightarrow \ldots $$
-$$ T_\ell(E) = \varprojlim E[\ell^n] $$
+$$ T_\ell(E) = \varprojlim E[\ell^n]. $$
 This is called the \emph{$\ell$-adic Tate module} of E. Notice that since each of the groups $E[\ell^n]$ has a
-$\mathbb{Z}/\ell^n\mathbb{Z}$-module structure, $T_\ell(E)$ will have natrual structure as a module
-over the ring og $\ell$-adic integers $\mathbb{Z}_\ell$.
+$\mathbb{Z}/\ell^n\mathbb{Z}$-module structure, $T_\ell(E)$ will have natural structure as a module
+over the ring of $\ell$-adic integers $\mathbb{Z}_\ell$ as follows: $r\in\mathbb{Z}_\ell$ and
+$x=(x_n)_n\in T_\ell(E)$ then
+$$ r(x_n)_n = ((r \mod p^n)x_n)_n.$$
 
 Similarly we can in a sense ``glue'' together the Weil pairings
 $$ e_{\ell^n} : E[\ell^n] \times E[\ell^n] \rightarrow \mu_{\ell^n} $$
 by constructing the $\ell$-adic roots of unity, and we obtain what is called the
-\emph{$\ell$-adic Weil pairing}.
-$$ e: T_\ell(E) \times T_\ell(E) \rightarrow T_\ell(\mu) $$
+\emph{$\ell$-adic Weil pairing}
+$$ e: T_\ell(E) \times T_\ell(E) \rightarrow T_\ell(\mu). $$
