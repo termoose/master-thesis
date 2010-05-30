@@ -84,20 +84,20 @@ $$ x^{q^2} = x - \frac{\Psi_{q_\ell-1} \Psi_{q_\ell+1}}{\Psi_{q_\ell}^2}(x,y) $$
 Writing this out in terms of $f_n(x)$ and noting that for $n$ even we have
 $\Psi_n(x,y) = y f_n(x)$, a calculation for $q_\ell$ even yields
 \begin{eqnarray*}
- x^{q^2} &=& \frac{f_{q_\ell-1}(x) f_{q_\ell+1}(x)}{(f_{q_\ell} y)^2} \nonumber \\
-	 &=& \frac{f_{q_\ell-1}(x) f_{q_\ell+1}(x)}{f_{q_\ell}^2 (x^3+Ax+B)} \nonumber \\
+ x^{q^2} &=& \frac{f_{q_\ell-1}(x) f_{q_\ell+1}(x)}{(f_{q_\ell}(x) y)^2} \nonumber \\
+	 &=& \frac{f_{q_\ell-1}(x) f_{q_\ell+1}(x)}{f_{q_\ell}^2(x) (x^3+Ax+B)} \nonumber \\
 \end{eqnarray*}
 The calculation for $q_\ell$ odd is similar and we get the equality
 
 $$
 x^{q^2} = \begin{cases}
-           x - \frac{f_{q_\ell-1}(x) f_{q_\ell+1}(x)}{f_{q_\ell}^2 (x^3+Ax+B)} & \text{if } q_\ell \text{ is even} \\
+           x - \frac{f_{q_\ell-1}(x) f_{q_\ell+1}(x)}{f_{q_\ell}^2(x) (x^3+Ax+B)} & \text{if } q_\ell \text{ is even} \\
 	   x - \frac{f_{q_\ell-1}(x) f_{q_\ell+1}(x) (x^3+Ax+B)}{f_{q_\ell}^2(x)} & \text{if } q_\ell \text{ is odd} 
           \end{cases}
 $$
 We thus get two equations and we want to verify they have any solutions $P \in E[\ell]$. For
 doing this we compute the following greatest common divisors
-$$ \gcd((x^{q^2} - x)f_{q_\ell}^2 (x^3+Ax+B)+f_{q_\ell-1}(x) f_{q_\ell+1}(x), f_\ell(x)) \quad (q_\ell \text{ even)}$$
+$$ \gcd((x^{q^2} - x)f_{q_\ell}^2(x) (x^3+Ax+B)+f_{q_\ell-1}(x) f_{q_\ell+1}(x), f_\ell(x)) \quad (q_\ell \text{ even)}$$
 $$ \gcd((x^{q^2} - x)f_{q_\ell}^2(x)+f_{q_\ell-1}(x) f_{q_\ell+1}(x) (x^3+Ax+B), f_\ell(x)) \quad (q_\ell \text{ odd)}$$
 We are now going to treat the rest in two cases, depending on the value from the above gcds.
 
@@ -154,7 +154,7 @@ Notice that we have an exact sequence of groups
 $$ 0 \rightarrow C \rightarrow E \rightarrow E/C \rightarrow 0 $$
 where the map $E \rightarrow E/C$ has cyclic kernel $C$ of order $\ell$.
 Determining which primes are Elkies primes can be done by working with the
-modular polynomials. From theorem \ref{modpol} we have that $\Phi_\ell(j(E),j(E/C)) = 0$,
+modular polynomials. From Theorem \ref{modpol} we have that $\Phi_\ell(j(E),j(E/C)) = 0$,
 so letting the isogeny $f: E \rightarrow E'$ have cyclic kernel $C$ we get an exact
 sequence
 $$ 0 \rightarrow C \rightarrow E \rightarrow E' \rightarrow 0 $$
@@ -173,7 +173,7 @@ unique points up to sign. In this way we get that the degree of $G_\ell(x)$ is $
 
 From the theory of eigenvalues we know that if $\lambda_1, \lambda_2$ are
 eigenvalues of $\phi$ then $$tr(\phi) = \lambda_1 + \lambda_2$$
-We also know using proposition \ref{detdeg} that $$\lambda_1 \lambda_2 = det(\phi) = q $$
+We also know using Proposition \ref{detdeg} that $$\lambda_1 \lambda_2 = det(\phi) = q $$
 Using this we can recover the trace of $\phi$ by calculating one of the eigenvalues
 $$ \tau \equiv \lambda + \frac{q}{\lambda} \quad (mod\, \ell) $$
 To compute the eigenvalue $\lambda$ we can thus check which of the relations
@@ -260,3 +260,30 @@ write $[B(w)]_j$ for the coefficient of $w^j$ in the power series $B(w)$. Lettin
 coefficient of $x^i$ in $G_\ell(x) = x^d + \sum_{i=0}^{d-1} g_i x^i$ with $d = \frac{\ell-1}{2}$ 
 we get the recursion
 $$g_{d-i} = [A(w)]_i - \sum_{k=1}^i \left( \sum_{j=0}^k \binom{d-i+k}{k-j} [C(w)^{k-j}]_j \right) g_{d-i+k} $$
+as seen in \cite{Blake}.
+
+We end this section by given a short summary of the Schoof-Elkies algorithm:
+choose $S$ to be the set of small odd primes such that the product is bigger than the Hasse
+interval. For each such prime $\ell \in S$ we check if the following holds
+\begin{equation} \label{eq1}
+ \phi^2(P) + q_\ell P = \tau \phi(P)
+\end{equation}
+
+for all $P\in E[\ell]$. Here the addition is done using the appropriate addition law on $E$,
+treated in special cases depending on whether the two points are on the same vertical line
+or not. The points $q_\ell P$ and $\tau \phi(P)$ can be calculated by using properties of
+the division polynomials. We then proceed by checking if \eqref{eq1} holds for $P\in E[\ell]$ and
+$ 0 \leq \tau < \ell$, all calculations done modulo the division polynomials $\Psi_\ell(x)$
+and the curve equation for $E$. This gives an algorithm of complexity $O(\log^8 q)$ \cite{Schoof}.
+
+The improvement due to Elkies is the restriction of the set of small primes $S$. Choosing
+only the small primes $\ell$ such that $\tau^2 - 4q_\ell$ is a square modulo $\ell$ (Elkies primes),
+we obtain a factorization of the characteristic equation of the Frobenius. This thus
+gives you a cyclic eigenspace $C\subset E[\ell]$ of dimension $1$ corresponding to an eigenvalue
+$\lambda$. Computing one of the eigenvalues $\lambda$ will give us the trace modulo $\ell$.
+We thus have to check if
+$$ \phi(P) = \lambda P$$
+holds on $C$. This enables us to use a factor of the division polynomial $G_\ell(x)$ of degree
+$\frac{\ell-1}{2}$. The improvement is thus to do the work in Schoof
+modulo $G_\ell(x)$ of much smaller degree, instead of working with the full division polynomial $\Psi_\ell(x)$.
+Schoof-Elkies can thus be shown \cite{Schoof} to have complexity $O(\log^5 q)$.

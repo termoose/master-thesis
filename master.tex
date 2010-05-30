@@ -3,7 +3,7 @@
 \usepackage[all,cmtip]{xy}
 \usepackage{listings}
 \usepackage{algorithmic} %pseudokode
-
+\usepackage{graphicx}
 
 %opening
 %\title{$p$-adic and $\ell$-adic point counting on elliptic curves}
@@ -19,14 +19,13 @@
 \newtheorem{cor}{Corollary}
 
 \begin{abstract}
-Elliptic curve cryptography is a fairly new approach to public-key cryptography.
+Elliptic curve cryptography is an approach to public-key cryptography.
 The elliptic curve chosen should be such that its number of points is divisible by
 a large prime factor. Ideally there should be a prime number of points on the curve.
 
 In this paper we present the first efficient point counting algorithm due to Schoof,
-before given a significant improvement due to Elkies. In the final section I give Satoh's
+before giving a significant improvement due to Elkies. In the final section I give Satoh's
 algorithm which is even faster and has paved the way for the field of $p$-adic point counting.
-A thorough introduction to algebraic geometry and the theory of elliptic curves is given along the way.
 \end{abstract}
 
 \maketitle
@@ -40,7 +39,6 @@ A thorough introduction to algebraic geometry and the theory of elliptic curves 
 \include{modular}
 \include{schoof}
 \include{satoh}
-
 
 \bibliographystyle{apalike}
 \bibliography{refs}

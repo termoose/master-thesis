@@ -99,12 +99,9 @@ This is again an integral domain  and we can form its quotient field $Quot(\math
 which we call \emph{the field of $q$-adic numbers}. It is this field that we will
 be lifting to in Satoh's algorithm.
 
+In practice one only computes a $p$-adic integer up to some precision $N$.
 \begin{mydef}
- A $p$-adic integer $x\in \mathbb{Z}_p$ has \emph{precision $N$} if it is correct up its first $N$ terms.
-Equivalently 
-\begin{eqnarray}
-  x-\pi_N(x) &=& x_{N+1}p^{N+1} + x_{N+2}p^{N+2} + \ldots \nonumber \\
-	     &=& O(p^{N+1}) \nonumber
-\end{eqnarray}
-
+ Given a $p$-adic integer $x \in \mathbb{Z}_p$ we say that 
+$$\pi_N(x) \in \mathbb{Z}/p^N\mathbb{Z}$$
+is an \emph{approximation of $x$ with precision $N$}.
 \end{mydef}
