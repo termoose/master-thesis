@@ -56,7 +56,7 @@ $$ (S,T) \mapsto \frac{g(X + S)}{g(X)} $$
 \begin{prop}
  The Weil pairing $e_n$ satisfies the following properties
 \begin{enumerate}
- \item Bilinear in both variables. $e_n(P_1 + P_2, Q) = e_n(P_1,Q)e_n(P_2,Q)$ and similarly for the other variable.
+ \item Bilinear in both variables: $e_n(P_1 + P_2, Q) = e_n(P_1,Q)e_n(P_2,Q)$ and similarly for the other variable.
  \item Alternating: $e_n(P,Q) = e_n(Q,P)^{-1}$.
  \item Non-degenerate: If $e_n(P,Q) = 1$ for all $P \in E[n]$ then $Q=O$.
  \item Galois invariant: For all $\sigma \in Gal(\bar{k}/k)$ we have $e_n(P,Q)^\sigma = e_n(\sigma(P),\sigma(Q))$.
@@ -90,3 +90,13 @@ $$ e_{\ell^n} : E[\ell^n] \times E[\ell^n] \rightarrow \mu_{\ell^n} $$
 by constructing the $\ell$-adic roots of unity, and we obtain what is called the
 \emph{$\ell$-adic Weil pairing}
 $$ e: T_\ell(E) \times T_\ell(E) \rightarrow T_\ell(\mu). $$
+
+We end this section by stating a result which enables us to view endomorphisms on $E$ as
+$2\times 2$ matrices by choosing a $\mathbb{Z}_\ell$ basis.
+\begin{prop}
+  The map $\phi: End(E) \rightarrow End(T_\ell(E))$ is an injective ring homomorphism. In addition
+we have that $End(T_\ell(E)) \simeq M_2(\mathbb{Z}_\ell)$ where $M_2$ is the ring of $2\times 2$
+matrices with $\mathbb{Z}_\ell$ coefficients.
+\end{prop}
+This will prove useful later on when establishing relations between determinants,
+trace and degrees of maps.

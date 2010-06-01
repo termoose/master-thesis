@@ -167,7 +167,7 @@ represent the curve as the graph of a function of one variable near $P$.
 In addition we say that a curve $C$ is \emph{smooth} if it has no singular points.
 
 \begin{mydef}
- Let $C$ be a curve and $P\in C$ a non-singular point on the curve. A valuation on
+ Let $C$ be a curve and $P\in C$ a non-singular point on the curve. The \emph{valuation} on
 $\bar{k}[C]_P$ is given by
 $$ ord_P : \bar{k}[C]_P \rightarrow \{ 0, 1, 2, \ldots \} \cup \{ \infty \} $$
 $$ ord_P(f) = max \{ d\in \mathbb{Z} : f\in M_P^d \} $$
@@ -277,9 +277,13 @@ element $\omega \in \Omega_C$ is of the form
 $$ \omega = \sum f_i dx_i $$
 \end{mydef}
 
+It can be shown that if $t\in \bar{k}(C)$ is the uniformizer \cite{Fulton} then
+$\omega = f dt$ for some $f\in \bar{k}(C)$ and we define
+$$ord_P(\omega) = ord_P(f).$$
+
 The divisor of a differential is given by
 $$ div(\omega) = \sum_{P\in C} ord_P(\omega)(P) \in Div(C)$$
-Divisors in the image of the map $div: \Omega_C \rightarrow Pic(C)$ are called
+Divisors in the image of the map $div: \Omega_C \rightarrow Div(C)$ are called
 \emph{canonical divisors}. They will play a role in the next theorem which will
 serve as an important tool for calculating the dimension of the vector space
 $\mathscr{L}(D)$, which will be crucial in establishing an important isomorphism.
@@ -306,7 +310,9 @@ Let $K_C$ be a canonical divisor, then
 \end{cor}
 
 Given a non-constant map of curves $\phi: C_1 \rightarrow C_2$, we have an induced map
-on function fields $\phi^*: K(C_2) \rightarrow K(C_1)$. From this again we get an induced
+on function fields $$\phi^*: K(C_2) \rightarrow K(C_1)$$
+$$f \mapsto f \phi.$$
+From this again we get an induced
 map on differential forms
 $$ \phi^*: \Omega_{C_2} \rightarrow \Omega_{C_1} $$
 $$ \phi^*\left(\sum f_i dx_i\right) = \sum (\phi^* f_i) d(\phi^* x_i) $$
@@ -318,6 +324,7 @@ function fields. We then say that $\phi$ is a \emph{separable map} if
 $K(C_1)/\phi^* K(C_2)$ is a separable extension.
 \end{mydef}
 
+Similarly, the degree of $\phi$ (as above) is the degree of the associated field extension.
 Recall that a field extension is separable if and only if the derivative of the minimal
 polynomial for each element is non-zero. This fact is the motivation for our next result,
 which gives a useful criterion for determining when a map is separable.
@@ -326,6 +333,13 @@ which gives a useful criterion for determining when a map is separable.
  Let $\phi: C_1 \rightarrow C_2$ be a map of curves, then $\phi$ is separable if and only if
 the induced map $\phi^*: \Omega_{C_2} \rightarrow \Omega_{C_1} $ is non-zero.
 \end{prop}
+
+The next result gives us the key property that we need in separable maps, important for
+point counting.
+\begin{thm} \label{kerdeg}
+ If $\phi$ is a separable map then
+$$\#\ker \phi = \deg \phi$$
+\end{thm}
 
 Before leaving the realm of differentials for a while we introduce a special differential.
 \begin{mydef}
@@ -401,7 +415,6 @@ to \cite{AEC}.
 
 We have thus established the group isomorphism which we again will denote by
 $$ \sigma : Div^0(E)/Prin(E) = Pic^0(E) \rightarrow E(\bar{k}) $$
-
 \end{proof}
 
 \begin{mydef}
@@ -409,6 +422,20 @@ $$ \sigma : Div^0(E)/Prin(E) = Pic^0(E) \rightarrow E(\bar{k}) $$
 which satisfies $\phi(O) = O$. In addition, two curves are said to be \emph{isogenous} (of degree $n$) 
 if there exists a non-zero isogeny (of degree $n$) between them.
 \end{mydef}
+
+The following is a nice result about isogenies using separability, see \cite{AEC} for a proof.
+\begin{prop}\label{tri}
+Let $\phi$ be a separable isogeny as below and $\ker \phi \subseteq \ker \psi$,
+then there exists a unique $\lambda: E_2 \rightarrow E_3$ such that the diagram
+commutes
+$$
+\xymatrix {
+  E_1 \ar[r]^\phi \ar[dr]^\psi & E_2 \ar@{.>}[d]^\lambda \\
+  & E_3 \\
+}
+$$
+\end{prop}
+
 
 Note that $\phi: E_1 \rightarrow E_2$ induces a map on Picard groups
 $$\phi^*: Pic^0(E_2) \rightarrow Pic^0(E_1)$$
@@ -421,11 +448,18 @@ $$ E_2 \overset{\sigma_2^{-1}}{\rightarrow} Pic^0(E_2) \overset{\phi^*}{\rightar
  The composition above is the \emph{dual isogeny} of $\phi$, denoted $\widehat{\phi}: E_2 \rightarrow E_1$.
 It has the following properties 
 \begin{enumerate}
- \item $\widehat{\phi}\phi = [deg(\phi)]$ on $E_1$ and $\phi\widehat{\phi} = [deg(\phi)]$ on $E_2$
+ \item $\widehat{\phi}\phi = [\deg\phi]$ on $E_1$ and $\phi\widehat{\phi} = [\deg\phi]$ on $E_2$
  \item If $\psi: E_2 \rightarrow E_3$ is another isogeny then $\widehat{\psi \phi} = \widehat{\phi}\widehat{\psi}$
  \item If $\lambda: E_1 \rightarrow E_2$ is another isogeny then $\widehat{\phi+\phi} = \widehat{\phi}+\widehat{\psi}$
- \item $deg(\widehat{\phi}) = deg(\phi)$.
+ \item $\deg\widehat{\phi} = \deg\phi$.
  \item $\widehat{\widehat{\phi}} = \phi$.
 \end{enumerate}
 \end{prop}
 
+We end this section by a short comment on the dual isogeny. If $\phi$ is a separable map then
+the first property follows by the following argument: letting $\deg\phi = m$ we have
+that $\#\ker\phi = m$ which is clearly a subgroup of elements of order $m$
+$$ \ker \phi \subseteq \ker [m].$$
+Using Proposition \ref{tri} we have that there exists a unique $\lambda: E_2 \rightarrow E_1$
+such that $\lambda\phi = [m]$ which by setting $\lambda =\widehat{\phi}$ is exactly what we want.
+The case where $\phi$ is assumed inseparable can be found in \cite{AEC}.

@@ -126,8 +126,10 @@ $$\phi^2 (P) + q_\ell P = \left(-x^{q^2}-x+\frac{\Psi_{q_\ell-1}\Psi_{q_\ell+1}}
 		     -y^{q^2}-\lambda\left(-2x^{q^2}-x+\frac{\Psi_{q_\ell-1}\Psi_{q_\ell+1}}{\Psi_{q_\ell}^2}\right)\right)$$
 The right hand side is as before given by
 $$ \tau\phi(P)=\left(x^q-\left(\frac{\Psi_{\tau+1}\Psi_{\tau-1}}{\Psi_\tau^2}\right)^q,\left(\frac{\Psi_{\tau+2}\Psi_{\tau-1}^2 - \Psi_{\tau-2}\Psi_{\tau+1}^2}{4y\Psi_\tau^3}\right)^q\right) $$
-So figuring out if $$\phi^2(P) + q_\ell P = \tau \phi(P) $$ amounts to checking if the above equalities
-hold for $P\in E[\ell]$ and $0 \leq \tau < \ell$, working modulo the division polynomials $\Psi_\ell(x)$. 
+So figuring out if $$\phi^2(P) + q_\ell P = \tau \phi(P) $$ amounts to checking if the difference
+of the two expressions are zero modulo the division polynomials for some $0 \leq \tau < \ell$.
+More explicit formulas can be found in \cite{Schoof85}.
+
 \subsection{Schoof-Elkies algorithm}
 When doing the calculations in Schoof's algorithm we were working modulo the division
 polynomials $\Psi(x,y)$ of degree $\ell^2-1$. Instead we can exploit some special primes
@@ -173,7 +175,7 @@ unique points up to sign. In this way we get that the degree of $G_\ell(x)$ is $
 
 From the theory of eigenvalues we know that if $\lambda_1, \lambda_2$ are
 eigenvalues of $\phi$ then $$tr(\phi) = \lambda_1 + \lambda_2$$
-We also know using Proposition \ref{detdeg} that $$\lambda_1 \lambda_2 = det(\phi) = q $$
+We also know using Proposition \ref{detdeg} that $$\lambda_1 \lambda_2 = \det \phi = q $$
 Using this we can recover the trace of $\phi$ by calculating one of the eigenvalues
 $$ \tau \equiv \lambda + \frac{q}{\lambda} \quad (mod\, \ell) $$
 To compute the eigenvalue $\lambda$ we can thus check which of the relations

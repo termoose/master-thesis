@@ -4,7 +4,7 @@ precision, then we recover the trace of the Frobenius from the lifted data.
 
 \subsection{Lifting the j-invariants}
 We begin by establishing some notation, so let $\mathbb{F}_q$ be our finite field with $q=p^n$ as before,
-$\mathbb{Z}_p$ the $p$-adic integers and $\mathbb{Q}_q$ the $q$-adic rationals as defined in section \ref{p-adic}.
+$\mathbb{Z}_p$ the $p$-adic integers and $\mathbb{Q}_q$ the $q$-adic rationals as defined in Section \ref{p-adic}.
 For this section we let $\sigma$ be the $p^{th}$ Frobenius, and $\phi_q$ be the $q^{th}$ Frobenius.
 As for previous sections we denote the curves over our finite fields as $E/\mathbb{F}_q$,
 for the lifted curves we write $\mathscr{E}/\mathbb{Q}_q$.
@@ -34,10 +34,7 @@ Letting $E^{\sigma^i} = E^i $ we get a sequence of maps
 $$ E \overset{\sigma}{\rightarrow} E^1 \overset{\sigma}{\rightarrow} E^2 \overset{\sigma}{\rightarrow}
 \ldots \overset{\sigma}{\rightarrow} E^{n-1} $$
 Where the composition is the $q^{th}$ Frobenius $\phi_q = \sigma \sigma \ldots \sigma: E \rightarrow E$.
-Recall that the $deg(\sigma) = p$ so from the theory of modular polynomials we have that
-$$ \Phi_p(j(E^i), j(E^{i+1})) = 0 $$
-
-
+Recall that the $\deg \sigma = p$.
 
 Since the endomorphism rings are isomorphic we can lift every Frobenius on $E$ to a
 Frobenius on $\mathscr{E}$. We thus obtain a commutative diagram
@@ -117,7 +114,7 @@ action of the Frobenius on the invariant differential $\omega$ we see that
 \end{eqnarray}
 Where the last equality is using the fact that $\phi^* = 0$ since $\phi$ is inseparable, we thus
 get that $\widehat{\phi}^*(\omega) = c\omega$.
-Recall from \ref{invariant} that $\frac{dx}{y}$ is also holomorphic and invariant under translation,
+Recall from Chapter \ref{invariant} that $\frac{dx}{y}$ is also holomorphic and invariant under translation,
 so for the rest of this section we define our invariant differential as such
 $$ \omega = \frac{dx}{y} $$
 Instead of working with $\phi$ we work with its dual $\widehat{\phi}$ and the dual
@@ -235,3 +232,4 @@ $\omega$
 $$\lambda_i^*(\omega) = c\omega.$$
 Then $c$ is given by a product of the curve coefficients of
 $\mathscr{E}^{i+1}/\ker(\widehat{\sigma}_{i+1})$ and $\mathscr{E}^i$.
+The time complexity of this algorithm is $O(n^5)$ where $n$ is such that $q = p^n$.
