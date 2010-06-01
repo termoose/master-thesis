@@ -7,7 +7,7 @@ $$ P \mapsto nP $$
 has order $n^2$.
 \end{prop}
 \begin{proof}
-The shortest proof relies heavily on the dual isogeny, so letting $d = deg [n]$ and using the properties of 
+The shortest proof relies heavily on the dual isogeny, so letting $d = \deg [n]$ and using the properties of 
 the dual isogeny we calculate
 $$ [d] = \widehat{[n]}[n] = [n][n] = [n^2] $$
 and since $End(E)$ is torsion free \cite{AEC} we get that $d = n^2$.
@@ -17,7 +17,7 @@ A subgroup of $E(k)$ that will be of special interest to us is the group of poin
 with finite order $n$, this is by definition the kernel of the multiplication by $n$ map.
 \begin{mydef}
  The $n$-torsion subgroup denoted $E[n]$ is the group of points of order $n$ in $E$.
-$$ E[n] = \{ P\in E : nP = O \} $$
+$$ E[n] = \left\{ P\in E : nP = O \right\}.$$
 \end{mydef}
 
 We are now ready to construct a bilinear pairing between the $n$-torsion subgroups of
@@ -26,31 +26,31 @@ proofs. In addition it has well established applications within number theory, c
 and identity based encryption.
 
 The pairing we want to construct is of the form
-$$ e_n : E[n] \times E[n] \rightarrow \mu_n $$
+$$ e_n : E[n] \times E[n] \rightarrow \mu_n.$$
 Let $T\in E[n]$ be an $n$-torsion point. From \cite{Lawrence} we know that there exists
 $f \in \bar{k}(E)$ such that $div(f) = n(T) - n(O)$. Now letting $T' \in E[n^2]$ be such
 that $nT' = T$, we have a function $g \in \bar{k}(E)$ such that
-$$ div(g) = \sum_{R\in E[n]} (T'+R)-(R) $$
+$$ div(g) = \sum_{R\in E[n]} (T'+R)-(R). $$
 This follows from the fact that there are $n^2$ points in $E[n]$, the points $(R)$ in the
-sum cancel, so we are left with $n^2 T' = nT = O$. Clearly $deg(div(g)) = 0$.
+sum cancel, so we are left with $n^2 T' = nT = O$. Clearly $\deg(div(g)) = 0$.
 
 If we now form the composition $f \circ [n]$, we notice that the points $P = T' + R$ with
 $R\in E[n]$ are those with the property $nP = T$. Now since $f$ has a root at $T$ from
 construction, we see that $f \circ [n]$ has a root at $P$. Using the fact that $ord_P$ is a valuation
 so that $div(g^n) = n\;div(g)$, and writing out the divisors of our functions we see that
-$$ div(f \circ [n]) = n\sum_{R\in E[n]} (T'+R) - n\sum_{R\in E[n]} (R) = div(g^n) $$
+$$ div(f \circ [n]) = n\sum_{R\in E[n]} (T'+R) - n\sum_{R\in E[n]} (R) = div(g^n).$$
 
 Since our two rational functions $f \circ [n]$ and $g^n$ have the same divisors, they have the
 same poles and zeros. Therefore they differ by multiplication of a constant, so
 $f \circ [n] = \lambda g^n$ with $\lambda \in \bar{k}$. With a suitable choice of $\lambda$
 we can assume that 
-$$f \circ [n] = g^n$$
+$$f \circ [n] = g^n.$$
 Letting $S \in E[n]$ be another $n$-torsion point and $X \in E(\bar{k})$ a point on the curve we calculate that
-$$ g(X + S)^n = (f \circ [n])(X + S) = f([n]X + [n]S) = f([n]X) = g(X)^n $$
+$$ g(X + S)^n = (f \circ [n])(X + S) = f([n]X + [n]S) = f([n]X) = g(X)^n. $$
 \begin{mydef}
  Given the above calculation the \emph{Weil pairing} is defined as
 $$ e_n : E[n] \times E[n] \rightarrow \mu_n$$
-$$ (S,T) \mapsto \frac{g(X + S)}{g(X)} $$
+$$ (S,T) \mapsto \frac{g(X + S)}{g(X)}. $$
 \end{mydef}
 
 \begin{prop}
@@ -68,7 +68,7 @@ $$ (S,T) \mapsto \frac{g(X + S)}{g(X)} $$
 
 \begin{prop}
 Letting $\ell$ be a prime not dividing $char(k)$ we have the following isomorphism of abelian groups
- $$ E[\ell] \simeq \mathbb{Z}/\ell\mathbb{Z} \times \mathbb{Z}/\ell\mathbb{Z} $$
+ $$ E[\ell] \simeq \mathbb{Z}/\ell\mathbb{Z} \times \mathbb{Z}/\ell\mathbb{Z}. $$
 \end{prop}
 
 The last proposition enables us to view automorphism of $E[\ell]$ as $2\times 2$ invertible matrices,

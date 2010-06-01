@@ -10,7 +10,7 @@ so we have an isomorphism
 $$ \bar{k}/\Lambda \simeq E(\bar{k}) $$
 $$ z \mapsto (\wp(z), \wp '(z)) $$
 where $\wp(z)$ is the elliptic Weierstrass function
-$$\wp(z) = \frac{1}{z^2} + \sum_{k=1}^\infty c_k z^{2k} $$
+$$\wp(z) = \frac{1}{z^2} + \sum_{k=1}^\infty c_k z^{2k}. $$
 
 \begin{mydef}
  The \emph{division polynomials} are polynomials $\Psi_n(x,y) \in \mathbb{Z}[x,y,A,B]$
@@ -43,15 +43,15 @@ $\mathbb{F}_q[x]$ if is $n$ is odd or $y \mathbb{F}_q[x]$ if $n$ is even. To avo
 this distinction we define
 $$
 f_n(x) = \begin{cases}
-          \Psi_n '(x,y) & \text{if n is odd} \\
-	  \Psi_n '(x,y)/y & \text{if n is even}
+          \Psi_n '(x,y) & \text{if n is odd.} \\
+	  \Psi_n '(x,y)/y & \text{if n is even.}
          \end{cases}
 $$
 
 
 \begin{prop}
  Let $n \geq 2$ and $\Psi_n$ the division polynomial as defined above, then
-$$ nP = (x - \frac{\Psi_{n-1} \Psi_{n+1}}{\Psi_n^2}, \frac{\Psi_{n+2} \Psi_{n-1}^2 - \Psi_{n-2} \Psi_{n+1}^2}{4y \Psi_n^3} )$$
+$$ nP = (x - \frac{\Psi_{n-1} \Psi_{n+1}}{\Psi_n^2}, \frac{\Psi_{n+2} \Psi_{n-1}^2 - \Psi_{n-2} \Psi_{n+1}^2}{4y \Psi_n^3} ).$$
 \end{prop}
 
 \subsection{Schoof's algorithm}
@@ -61,10 +61,10 @@ we want to compute the size of $\#E(\mathbb{F}_q)$, we know from before that
 $$ \#E(\mathbb{F}_q) = q + 1 - t $$
 where $t$ is the trace of the Frobenius as seen in chapter \ref{frob}. We know
 that $t$ satisfies the Hasse bound namely
-$$ |\#E(\mathbb{F}_q)-q-1|=|t| < 2\sqrt{q} $$
-Let $S = \{3, 5, 7, 11, \ldots \, L \}$ be the set of odd primes $\leq L$ such
+$$ \lvert \#E(\mathbb{F}_q)-q-1\rvert=\lvert t\rvert < 2\sqrt{q}.$$
+Let $S = \left\{3, 5, 7, 11, \ldots \, L \right\}$ be the set of odd primes $\leq L$ such
 that the product is bigger than the Hasse interval
-$$ N = \prod_{\ell \in S} \ell  > 4\sqrt{q} $$
+$$ N = \prod_{\ell \in S} \ell  > 4\sqrt{q}. $$
 If we can then calculate $t\, (mod\,\ell)$ for all $\ell \in S$ we can uniquely
 determine $t\,(mod\,N)$ by invoking the Chinese remainder theorem,
 which then by the Hasse bound is our Frobenius trace $t$.
@@ -77,10 +77,10 @@ $$ \phi^2(P) + q_\ell P = \tau \phi(P) $$
 holds for $P \in E[\ell]$. To perform the addition on the left hand side of the
 equality we need to distinguish the cases where the points are on a vertical line or not.
 In other words we have to verify if for $P = (x,y) \in E[\ell]$ the following holds
-$$ \phi^2 (P) = \pm q_\ell P $$
+$$ \phi^2 (P) = \pm q_\ell P. $$
 Noting that $-P = (x, -y)$ we write out the equality for the $x$-coordinates in terms of
 division polynomials
-$$ x^{q^2} = x - \frac{\Psi_{q_\ell-1} \Psi_{q_\ell+1}}{\Psi_{q_\ell}^2}(x,y) $$
+$$ x^{q^2} = x - \frac{\Psi_{q_\ell-1} \Psi_{q_\ell+1}}{\Psi_{q_\ell}^2}(x,y). $$
 Writing this out in terms of $f_n(x)$ and noting that for $n$ even we have
 $\Psi_n(x,y) = y f_n(x)$, a calculation for $q_\ell$ even yields
 \begin{eqnarray*}
@@ -104,9 +104,9 @@ We are now going to treat the rest in two cases, depending on the value from the
 \textbf{Case 1:} $\gcd \neq 1$ meaning there exist a non-zero $\ell$-torsion point $P$ such that $\phi^2(P) = \pm q_\ell P$.
 If $\phi^2 (P) = -q_\ell P$ we have that $\tau \phi(P) = 0$ but since $\phi(P) \neq 0$ we know that $\tau = 0$.
 If $\phi^2(P) = q_\ell P$ we have that 
-$$ 2 q_\ell P = \tau \phi(P) \Leftrightarrow \phi(P) = \frac{2 q_\ell}{\tau} $$
+$$ 2 q_\ell P = \tau \phi(P) \Leftrightarrow \phi(P) = \frac{2 q_\ell}{\tau}. $$
 Substituting the last equality into $\phi^2(P) = q_\ell P$ we obtain
-$$ \frac{4 q_\ell^2}{\tau^2} = q_\ell P \Leftrightarrow 4 q_\ell P = \tau^2 P $$
+$$ \frac{4 q_\ell^2}{\tau^2} = q_\ell P \Leftrightarrow 4 q_\ell P = \tau^2 P. $$
 We thus obtain the congruence $\tau^2 \equiv 4q_\ell \quad (mod\, \ell)$
 
 \textbf{Case 2:} $\gcd = 1$ so $\phi^2(P) \neq \pm q_\ell P$ meaning the two points are 
@@ -116,14 +116,14 @@ Recall that if $P = (x_1, y_1)$ and $Q = (x_2, y_2)$ are two points on $E$ with
 $P \neq Q$ we have that their sum is given by $P+Q = (x_3, y_3)$ where
 $$ \lambda = \frac{y_2 - y_1}{x_2 - x_1} $$
 $$ x_3 = -x_1 - x_2 + \lambda^2 $$
-$$ y_3 = -y_1 -\lambda(x_3 - x_1) $$
+$$ y_3 = -y_1 -\lambda(x_3 - x_1).$$
 We can now write out the addition explicitly in terms of polynomials as follows
 $$ \lambda = \frac{\Psi_{q_\ell+2} \Psi_{q_\ell-1}^2 - \Psi_{q_\ell-2}\Psi_{q_\ell+1}^2 - 4y^{q^2+1}\Psi_{q_\ell}^3}
 		  {4\Psi_{q_\ell} y ((x-x^{q^2})\Psi_{q_\ell}^2 - \Psi_{q_\ell-1}\Psi_{q_\ell+1}} $$
 with the left hand side given by
 
 $$\phi^2 (P) + q_\ell P = \left(-x^{q^2}-x+\frac{\Psi_{q_\ell-1}\Psi_{q_\ell+1}}{\Psi_{q_\ell}^2}+\lambda^2,
-		     -y^{q^2}-\lambda\left(-2x^{q^2}-x+\frac{\Psi_{q_\ell-1}\Psi_{q_\ell+1}}{\Psi_{q_\ell}^2}\right)\right)$$
+		     -y^{q^2}-\lambda\left(-2x^{q^2}-x+\frac{\Psi_{q_\ell-1}\Psi_{q_\ell+1}}{\Psi_{q_\ell}^2}\right)\right).$$
 The right hand side is as before given by
 $$ \tau\phi(P)=\left(x^q-\left(\frac{\Psi_{\tau+1}\Psi_{\tau-1}}{\Psi_\tau^2}\right)^q,\left(\frac{\Psi_{\tau+2}\Psi_{\tau-1}^2 - \Psi_{\tau-2}\Psi_{\tau+1}^2}{4y\Psi_\tau^3}\right)^q\right) $$
 So figuring out if $$\phi^2(P) + q_\ell P = \tau \phi(P) $$ amounts to checking if the difference
@@ -139,8 +139,8 @@ Here $C$ will correspond to a $1$-dimensional eigenspace.
 The Frobenius endomorphism restricted to $E[\ell]$ satisfies the characteristic equation
 $$ \phi^2 - \tau \phi + q_\ell = 0 $$
 where $\tau$ and $q_\ell$ is as before. The roots of this equations are the eigenvalues
-of $\phi | E[\ell]$ and they are given by
-$$ \lambda_{1,2} = \frac{\tau \pm \sqrt{\tau^2 - 4 q_\ell}}{2} $$
+of $\phi$ restricted to $E[\ell]$ and they are given by
+$$ \lambda_{1,2} = \frac{\tau \pm \sqrt{\tau^2 - 4 q_\ell}}{2}. $$
 If the discriminant $\tau^2 - 4 q_\ell$ is a square modulo $\ell$ we have that
 $\lambda_{1,2} \in \mathbb{F}_q$.
 \begin{mydef}
@@ -166,7 +166,7 @@ which by a diagram chase yields $ E' \simeq E/C $. This argument gives us the fo
 prime.
 \end{prop}
 Figuring out if $\ell$ is an Elkies prime can thus be done fast by calculating
-$$\gcd(\Phi_\ell(j(E), x), x^q - x)$$
+$$\gcd(\Phi_\ell(j(E), x), x^q - x).$$
 Now since we are working only with primes of this type we restrict ourself to working
 in the subspace $C$ of order $\ell$. There is thus a factor $G_\ell(x)$ of the division polynomial
 which has the $x$-coordinates of points in $C$ as roots. Since
@@ -177,7 +177,7 @@ From the theory of eigenvalues we know that if $\lambda_1, \lambda_2$ are
 eigenvalues of $\phi$ then $$tr(\phi) = \lambda_1 + \lambda_2$$
 We also know using Proposition \ref{detdeg} that $$\lambda_1 \lambda_2 = \det \phi = q $$
 Using this we can recover the trace of $\phi$ by calculating one of the eigenvalues
-$$ \tau \equiv \lambda + \frac{q}{\lambda} \quad (mod\, \ell) $$
+$$ \tau \equiv \lambda + \frac{q}{\lambda} \quad (mod\, \ell). $$
 To compute the eigenvalue $\lambda$ we can thus check which of the relations
 $$ \phi(P) = (x^q, y^q) = \lambda P$$
 holds on the eigenspace $C$, this mean we can work modulo $G_\ell(x)$. This enables us
@@ -202,17 +202,17 @@ $\tilde{j} = j(\tilde{E})$ is given by
 $$ \tilde{E}: y^2 = x^3 + \bar{A}x + \bar{B} $$
 
 $$\bar{A} = -\frac{\tilde{j}'^2}{48 \tilde{j}(\tilde{j} - 1728)} \quad
-  \bar{B} = -\frac{\tilde{j}'^3}{864 \tilde{j}^2(\tilde{j} - 1728)} $$
+  \bar{B} = -\frac{\tilde{j}'^3}{864 \tilde{j}^2(\tilde{j} - 1728)}. $$
 
 And letting $$\Phi_{\ell, x} = \frac{\partial \Phi_\ell}{\partial x} \quad
               \Phi_{\ell, y} = \frac{\partial \Phi_\ell}{\partial y}$$
 be the partial derivatives with respect to $x$ and $y$ respectively we have that
-$$ \bar{j}' = -\frac{18 B \Phi_{\ell, x}(j, \bar{j})}{\ell A \Phi_{\ell, y}(j, \bar{j})} j $$
+$$ \bar{j}' = -\frac{18 B \Phi_{\ell, x}(j, \bar{j})}{\ell A \Phi_{\ell, y}(j, \bar{j})} j. $$
 \end{thm}
 The next theorem will enable us to compute the sum of the $x$-coordinates of the points in
 our subspace $C$. This value will be used to calculate every coefficient of $G_\ell(x)$, notice
 that if we formally multiply out the product of $G_\ell(x)$ we get
-$$ G_\ell(x) = x^\frac{\ell-1}{2} - \frac{p_1}{2} x^\frac{\ell-3}{2} + \ldots $$
+$$ G_\ell(x) = x^\frac{\ell-1}{2} - \frac{p_1}{2} x^\frac{\ell-3}{2} + \ldots. $$
 Here $p_1$ is the sum of the $x$-coordinates of $C$, the division by two is because they
 appear twice as a result of the symmetry around the $x$-axis.
 \begin{thm}
@@ -224,7 +224,7 @@ $$ p_1 = \frac{\ell}{2}J + \frac{\ell}{4} \left( \frac{E_4^2}{E_6} - \ell \frac{
 where by using the usual partial derivative notation $\Psi_{\ell, xx} = \frac{\partial^2 \Psi_\ell}{\partial x^2}$
 etc. we write $J$ as 
 $$ J = -\frac{j'^2 \Psi_{\ell, xx}(j, \tilde{j}) + 2\ell j' \tilde{j'} \Psi_{\ell, xy}(j, \tilde{j})
-+\ell^2 \tilde{j'}^2 \Psi_{\ell, yy}(j, j')}{j' \Psi_{\ell, x}(j, j')} $$
++\ell^2 \tilde{j'}^2 \Psi_{\ell, yy}(j, j')}{j' \Psi_{\ell, x}(j, j')}. $$
 Here $j'= -j \frac{E_6}{E_4}$ and similarly $\tilde{j'} = -\tilde{j} \frac{\tilde{E_6}}{\tilde{E_4}}$.
 \end{thm}
 
@@ -233,22 +233,22 @@ Given the value of $p_1$ we can calculate the rest of the coefficients using a t
  Let $\ell \neq char(k)$ be a prime, and $\phi: E \rightarrow \widetilde{E}$ be an isogeny with $\ker(\phi)$
 cyclic of size $\ell$, then the polynomial $G_\ell(x)$ which vanishes on the $x$-coordinates of
 elements of $\ker(\phi)$ satisfies
-$$ z^{\ell-1}G_\ell(\wp(z)) = exp(-\frac{1}{2}p_1 z^2 - \sum_{k=1}^\infty \frac{\widetilde{c}_k-\ell c_k}{(2k+1)(2k+2)}z^{2k+2})$$
+$$ z^{\ell-1}G_\ell(\wp(z)) = exp(-\frac{1}{2}p_1 z^2 - \sum_{k=1}^\infty \frac{\widetilde{c}_k-\ell c_k}{(2k+1)(2k+2)}z^{2k+2}).$$
 \end{thm}
 \begin{proof}
  The proof of Schoof uses analytic theory heavily, he introduces the Weierstrass $\zeta$-function
 which is defined by
-$$\zeta(z) = \frac{1}{z} - \sum_{k=1}^\infty \frac{c_k}{2k+1} z^{2k+1} $$
+$$\zeta(z) = \frac{1}{z} - \sum_{k=1}^\infty \frac{c_k}{2k+1} z^{2k+1}. $$
 Differentiating we see that $\zeta'(z) = - \wp(z)$. Let $\Lambda = \omega_1 \mathbb{Z}+\omega_2\mathbb{Z}$
 be the lattice corresponding to $E$ and then we have that
 $\widetilde{\Lambda} = \frac{\omega_1}{\ell}\mathbb{Z}+\omega_2\mathbb{Z}$ is the lattice corresponding
 to $\widetilde{E}$. Setting $\zeta$ and $\widetilde{\zeta}$ to be the Weierstrass $\zeta$-functions for
 $E$ and $\widetilde{E}$ respectively, Schoof eventually arrives at the equality
-$$-\ell \zeta(z)+\widetilde{\zeta}(z)-p_1 z = \sum_{i=1}^{(\ell-1)/2} \frac{\wp'(z)}{\wp(z)-\wp(\frac{i}{\ell}\omega_1)} $$
+$$-\ell \zeta(z)+\widetilde{\zeta}(z)-p_1 z = \sum_{i=1}^{(\ell-1)/2} \frac{\wp'(z)}{\wp(z)-\wp(\frac{i}{\ell}\omega_1)}. $$
 Notice that $\frac{d}{dz} \wp(z) - \wp(\frac{i}{\ell}\omega_1) = \wp'(z)$ so we can invert the process
 of logarithmic differentiation
 $$ \frac{df}{dz} = \frac{f'}{f}$$
-on both sides of the equality, setting $$f(z) = \prod_{i=1}^{(\ell-1)/2}(\wp(z)-\wp(\frac{i}{\ell}\omega_1)$$
+on both sides of the equality, setting $$f(z) = \prod_{i=1}^{(\ell-1)/2}(\wp(z)-\wp(\frac{i}{\ell}\omega_1).$$
 
 A thorough proof can be found in \cite{Schoof}.
 \end{proof}
@@ -286,6 +286,6 @@ $\lambda$. Computing one of the eigenvalues $\lambda$ will give us the trace mod
 We thus have to check if
 $$ \phi(P) = \lambda P$$
 holds on $C$. This enables us to use a factor of the division polynomial $G_\ell(x)$ of degree
-$\frac{\ell-1}{2}$. The improvement is thus to do the work in Schoof
+$\frac{\ell-1}{2}$. The improvement is thus to do the calculations of $x^q, y^q$ etc.
 modulo $G_\ell(x)$ of much smaller degree, instead of working with the full division polynomial $\Psi_\ell(x)$.
 Schoof-Elkies can thus be shown \cite{Schoof} to have complexity $O(\log^5 q)$.

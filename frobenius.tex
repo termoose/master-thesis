@@ -10,27 +10,27 @@ which induces a map on curves as follows
 $$ \phi: E(k) \rightarrow E^{\phi}(k) $$
 $$ (x_0,\ldots , x_n) \mapsto (x_0^p, \ldots , x_n^p) $$
 where $E^{\phi}$ is the curve $E$ with $\phi$ applied to its coefficients.
-$$E: y^2 = x^3 + ax + b \quad E^{\phi}: y^2 = x^3 + \phi(a)x + \phi(b) $$
+$$E: y^2 = x^3 + ax + b \quad E^{\phi}: y^2 = x^3 + \phi(a)x + \phi(b). $$
 \end{mydef}
 
 We can apply the Frobenius endomorphism $r$ times $$\phi^r(x) = x^{p^r} = x^q$$
 And since every finite field of $q$ elements is the splitting field of $x^{q}-x$, it is in other words
 the fixed points of the $q^{th}$ Frobenius endomorphism
-$$ \phi^r(x) = x \iff x \in \mathbb{F}_q $$
+$$ \phi^r(x) = x \iff x \in \mathbb{F}_q. $$
 The same is true for all intermediate fields of size $p^k$ with $0 < k \leq r$, so in general
 we have that the $\phi^k$ fixes the elements of the field $\mathbb{F}_{p^k}$.
 
 \begin{prop}
  Let $\sigma: E \rightarrow E^\sigma$ be the $p^{th}$ Frobenius on an elliptic curves
-  $$ E: y^2 = x^3 + ax + b$$
+  $$ E: y^2 = x^3 + ax + b.$$
 Then we have that $j(E^\sigma) = \sigma(j(E))$ where $j$ is the $j$-invariant of $E$.
 \end{prop}
 \begin{proof}
  This follows directly from the fact that the Frobenius map is an endomorphism and that
 the $j$-invariant is given by an algebraic expression \cite{AEC}
-$$j(E) = \frac{6912 a^3}{4a^3 + 27b^2}$$ 
+$$j(E) = \frac{6912 a^3}{4a^3 + 27b^2}.$$ 
 Applying $\sigma$ gives us
-$$\sigma(j(E)) = \frac{6912 \sigma(a)^3}{4\sigma(a)^3 + 27 \sigma(b)^2} = j(E^\sigma)$$
+$$\sigma(j(E)) = \frac{6912 \sigma(a)^3}{4\sigma(a)^3 + 27 \sigma(b)^2} = j(E^\sigma).$$
 \end{proof}
 
 \begin{mydef}
@@ -49,20 +49,20 @@ is called a positive definite quadratic form if
 The next result is one of the important ingredients of the proof of the Hasse bound.
 \begin{prop}
  The degree map
-$$ deg: Hom(E_1, E_2) \rightarrow \mathbb{Z} $$
+$$ \deg: Hom(E_1, E_2) \rightarrow \mathbb{Z} $$
 is a positive definite quadratic form.
 \end{prop}
 \begin{proof}
- Clearly $deg(f) = deg(-f)$. The only thing that takes a proof is the
+ Clearly $\deg f = \deg(-f)$. The only thing that takes a proof is the
 bilinearity of the pairing
 $$ Hom(E_1, E_2) \times Hom(E_1, E_2) \rightarrow \mathbb{Z}$$
-$$ \langle \phi, \psi \rangle \mapsto deg(\phi + \psi) - deg(\phi) - deg(\psi) $$
+$$ \langle \phi, \psi \rangle \mapsto \deg(\phi + \psi) - \deg\phi - \deg\psi. $$
 For this proof we will make extensive use of the dual isogeny, but first
 notice that we have an injection of multiplication by $n$ maps
-$$ [\quad]: \mathbb{Z} \rightarrow End(E_1) $$
+$$ [\quad]: \mathbb{Z} \rightarrow End(E_1). $$
 A calculation then yields 
 \begin{eqnarray*} 
- [\langle \phi,\psi \rangle] &=& [deg(\phi+\psi)]-[deg(\phi)]-[deg(\psi)] \nonumber \\
+ [\langle \phi,\psi \rangle] &=& [\deg(\phi+\psi)]-[\deg\phi]-[\deg\psi] \nonumber \\
                &=& (\widehat{\phi+\psi})(\phi+\psi) - \widehat{\phi}\phi - \widehat{\psi}\psi \nonumber \\
 	       &=& \widehat{\phi}\psi + \widehat{\psi}\phi
 \end{eqnarray*}
@@ -71,7 +71,7 @@ similar.
 \begin{eqnarray*}
  [\langle \phi_1+\phi_2, \psi \rangle] &=& \widehat{\psi}(\phi_1+\phi_2) + (\widehat{\phi_1+\phi_2})\psi \nonumber \\
 			 &=& (\widehat{\psi}\phi_1+\widehat{\phi_1}\psi) + (\widehat{\psi}\phi_2 + \widehat{\phi_2}\psi) \nonumber \\
-			 &=& [\langle \phi_1,\psi \rangle] + [\rangle \phi_2,\psi \rangle] 
+			 &=& [\langle \phi_1,\psi \rangle] + [\langle \phi_2,\psi \rangle] 
 \end{eqnarray*}
 \end{proof}
 
@@ -80,7 +80,7 @@ us to do point counting.
 
 \begin{thm} \label{frobkernel}
  Let $\phi$ be the $q^{th}$ Frobenius map on $E/\mathbb{F}_q$. Then the map $1-\phi$ is separable, and
-$\#\ker(1-\phi) = deg(1-\phi)$.
+$\#\ker(1-\phi) = \deg(1-\phi)$.
 \end{thm}
 \begin{proof}
   Recall from Chapter \ref{diffsep} that a map $\psi$ is separable if and only if $\psi^*(\omega) \neq 0$,
@@ -102,11 +102,11 @@ With the theory we developed so far we get the Hasse bound as a special case of 
  \textbf{(Cauchy-Schwartz inequality)}. Let $A$ be an abelian group and
 $$ d: A \rightarrow \mathbb{Z} $$
 a positive definite quadratic form. Then for all $\psi, \phi \in A$ the following holds
-$$ \lvert d(\psi-\phi)-d(\phi)-d(\psi) \rvert \leq 2 \sqrt{d(\phi)d(\psi)} $$
+$$ \lvert d(\psi-\phi)-d(\phi)-d(\psi) \rvert \leq 2 \sqrt{d(\phi)d(\psi)}. $$
 \end{lemma}
 \begin{proof}
  Let $\psi, \phi \in A$. From the definition of a quadratic form there is a bilinear pairing
-$$ L(\psi, \phi) = d(\psi-\phi) - d(\psi) - d(\phi) $$
+$$ L(\psi, \phi) = d(\psi-\phi) - d(\psi) - d(\phi). $$
 Using this definition, the fact that $d$ is positive definite and letting $m,n \in \mathbb{Z}$ where
 $m = -L(\psi, \phi)$ and $n = 2d(\psi)$ we calculate
 
@@ -118,27 +118,27 @@ $m = -L(\psi, \phi)$ and $n = 2d(\psi)$ we calculate
 
 where on the last line we make the substitution. If $d(\psi)=0$ the inequality is trivial, if
 $d(\psi) \neq 0$ we divide it out and obtain our result
-$$L(\psi, \phi)^2 \leq 4d(\psi)d(\phi) $$
+$$L(\psi, \phi)^2 \leq 4d(\psi)d(\phi). $$
 \end{proof}
 
 
 \begin{thm}
  \textbf{(Hasse's theorem)}. Let $E$ be an elliptic curve over a finite field $k$ with $q$ elements, then
-$$ \lvert \#E(k) - q - 1 \rvert \leq 2\sqrt{q} $$
+$$ \lvert \#E(k) - q - 1 \rvert \leq 2\sqrt{q}. $$
 \end{thm}
 \begin{proof}
  We let $\phi_q: E \rightarrow E$ be the $q^{th}$ Frobenius endomorphism on $E$ given by 
 $(x,y) \mapsto (x^q, y^q)$. Recall that $\phi_q$ fixes our field of $q$ elements, thus
-$$ P \in E(k) \quad \iff \quad \phi_q(P) = P$$
+$$ P \in E(k) \quad \iff \quad \phi_q(P) = P.$$
 Writing out the right hand side of the implication we see that
 $$ 0 = P - \phi_q(P) = (1 - \phi_q)(P) $$
 which enables us to count the number of points in $E(k)$ by counting the number of points in the kernel
 of the separable map $1-\phi_q$. Recall from before that the number of points in the kernel is equal
 to the degree of the separable map
-$$ \#E(k) = \# \ker(1-\phi_q) = deg(1-\phi_q) $$
+$$ \#E(k) = \# \ker(1-\phi_q) = \deg(1-\phi_q). $$
 We have shown in that the degree map on $End(E)$ is a positive definite quadratic form, so
 by using the inequality from the previous theorem we calculate
-$$\lvert deg(1-\phi_q) - deg(\phi_q) - deg(1)\rvert = \lvert \#E(k) - q - 1\rvert \leq 2\sqrt{deg(\phi_q)} = 2\sqrt{q}$$
+$$\lvert \deg(1-\phi_q) - \deg \phi_q - \deg 1\rvert = \lvert \#E(k) - q - 1\rvert \leq 2\sqrt{\deg \phi_q} = 2\sqrt{q}.$$
 \end{proof}
 
 The Hasse bound is used in all our coming algorithms. For Schoof-Elkies it tells us how many
@@ -146,18 +146,18 @@ small primes we have to calculate the Frobenius trace for. In the case of Satoh 
 with the sufficient precision needed to recover the Frobenius trace.
 
 \begin{prop} 
- If $\psi \in End(E)$ then $det(\psi_\ell) = deg(\psi)$, where $\psi_\ell$ is a $2\times2$ matrix acting
+ If $\psi \in End(E)$ then $\det \psi_\ell = \deg\psi$, where $\psi_\ell$ is a $2\times2$ matrix acting
 on the Tate module $T_\ell(E)$.
 \label{detdeg}
 \end{prop}
 \begin{proof}
  We fix a basis $v_1,v_2 \in \mathbb{Z}_\ell \times \mathbb{Z}_\ell$ for $T_\ell(E)$ and denote the matrix
 associated to this basis by
-$$ \psi_\ell = \begin{pmatrix} a & b \\ c & d \end{pmatrix} $$
+$$ \psi_\ell = \begin{pmatrix} a & b \\ c & d \end{pmatrix}. $$
 We now calculate by relying heavily on the $\ell$-adic Weil pairing,
 $e: T_\ell(E) \times T_\ell(E) \rightarrow T_\ell(\mu)$.
 \begin{eqnarray}
- e(v_1, v_2)^{deg(\psi)} &=& e([deg \psi]v_1, v_2) \nonumber \\
+ e(v_1, v_2)^{\deg\psi} &=& e([\deg \psi]v_1, v_2) \nonumber \\
 			 &=& e(\psi_\ell \widehat{\psi_\ell} v_1, v_2) \nonumber \\
 			 &=& e(\psi_\ell v_1, \psi_\ell v_2) \nonumber \\
 			 &=& e(a v_1 + c v_2, b v_1 + d v_2) \nonumber \\
@@ -165,15 +165,15 @@ $e: T_\ell(E) \times T_\ell(E) \rightarrow T_\ell(\mu)$.
 			 &=& e(a v_1, d v_2) e(b v_1, c v_2)^{-1} \nonumber \\
 			 &=& e(v_1, v_2)^{ad} e(v_1, v_2)^{-bc} \nonumber \\
 			 &=& e(v_1, v_2)^{ad - bc} \nonumber \\
-			 &=& e(v_1, v_2)^{det \psi_\ell} \nonumber
+			 &=& e(v_1, v_2)^{\det \psi_\ell} \nonumber
 \end{eqnarray}
-Since the pairing is non-degenerate we obtain $deg(\psi) = det(\psi_\ell)$.
+Since the pairing is non-degenerate we obtain $\deg\psi = \det\psi_\ell$.
 \end{proof}
 
 Writing out the determinant of $1-A$ for any matrix $A$ we get
-$$ \begin{vmatrix} 1-a & -b \\ -c & 1-d \end{vmatrix} = 1-(a+d)+ad-bc = 1-tr(A)+det(A) $$
-and we see that $tr(\psi_\ell) = 1 + det(\psi_\ell) - det(1-\psi_\ell)$. Using the previous theorem we
-get $$tr(\psi_\ell) = 1 + deg(\psi_\ell) - deg(1-\psi_\ell).$$ By substituting with the $q^{th}$ 
+$$ \begin{vmatrix} 1-a & -b \\ -c & 1-d \end{vmatrix} = 1-(a+d)+ad-bc = 1-tr(A)+\det A $$
+and we see that $tr(\psi_\ell) = 1 + \det \psi_\ell - \det(1-\psi_\ell)$. Using the previous theorem we
+get $$tr(\psi_\ell) = 1 + \deg \psi_\ell - \deg(1-\psi_\ell).$$ By substituting with the $q^{th}$ 
 Frobenius endomorphism on $T_\ell(E)$ and setting $\tau = tr(\phi_q)$ we get
 $$\#E(k) = 1 + q - \tau$$
 where we know from Hasse's theorem that $\lvert \tau \rvert \leq 2\sqrt{q}$.
@@ -184,10 +184,10 @@ expression of the Frobenius trace in terms of the dual isogeny.
 \begin{prop}
  Let $\phi: E \rightarrow E$ be the $q^{th}$ Frobenius endomorphism and $\widehat{\phi}$ its dual, then
 the following holds
-$$ t = tr(\phi) = \phi + \widehat{\phi}$$
+$$ t = tr(\phi) = \phi + \widehat{\phi}.$$
 \end{prop}
 \begin{proof}
- Recall that $1-\phi$ is seperable, so $$(1-\phi)(\widehat{1-\phi}) = deg(1-\phi) = \#\ker(1-\phi) = \#E(k)$$
+ Recall that $1-\phi$ is separable, so $$(1-\phi)(\widehat{1-\phi}) = \deg(1-\phi) = \#\ker(1-\phi) = \#E(k).$$
 Expanding the product on the left we get
 \begin{eqnarray}
  (1-\phi)(\widehat{1-\phi}) &=& (1-\phi)(1-\widehat{\phi}) \nonumber \\
@@ -202,7 +202,7 @@ A very useful property of the $q^{th}$ Frobenius endomorphism $\phi$ is its char
 $\phi_\ell\in M_2(\mathbb{Z})$ a trivial calculation using $\det \phi_\ell = \deg \phi = q\,$ gives
 \begin{eqnarray}
   \det(Ix - \phi_\ell) &=& x^2 -(a+d)x + ad - bc \nonumber \\
-		       &=& x^2 - Tr(\phi_\ell) + \det \phi_\ell \nonumber \\
+		       &=& x^2 - tr(\phi_\ell) + \det \phi_\ell \nonumber \\
 		       &=& x^2 -\tau x + q \nonumber
 \end{eqnarray}
 In other words we have that the Frobenius $\phi$ satisfies
